@@ -26,7 +26,7 @@ function submitDonation(){
  if(kind==='inc'&&amount<5000){alert('증액 금액은 최소 5,000원부터 입력해 주세요.');return;}
  if(kind==='new'&&amount<1000){alert('월 후원 금액을 선택하거나 입력해 주세요.');return;}
  if(kind==='pledge'&&!detail&&!notes){alert('약정 내용이나 문의 내용을 입력해 주세요.');return;}
- const payload={name,phone,email:document.getElementById('wEmail').value.trim(),kind,amount,currentMonthly:current,pledgeDetail:detail,notes,consent:true,page:'maeul-eondeok-donation',submittedAt:new Date().toISOString()};
+ const payload={name,phone,email:document.getElementById('wEmail').value.trim(),kind,amount,currentMonthly:current,pledgeDetail:detail,notes,consent:true,page:'마을언덕_캠페인',submittedAt:new Date().toISOString()};
  const form=document.createElement('form');form.method='POST';form.action=APPS_SCRIPT_WEB_APP_URL;form.target='submitFrame';form.style.display='none';
  const input=document.createElement('input');input.type='hidden';input.name='payload';input.value=JSON.stringify(payload);form.appendChild(input);document.body.appendChild(form);
  btn.disabled=true;btn.textContent='접수 중…';window.__maeulSubmissionPending=true;form.submit();setTimeout(()=>form.remove(),1000);
