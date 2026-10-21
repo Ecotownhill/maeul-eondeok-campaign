@@ -120,6 +120,7 @@ function submitDonation(){
  if(taxType==='person'&&taxNumber&&taxNumber.length!==13){alert('주민등록번호는 숫자 13자리로 입력해 주세요.');return;}
  if(taxType==='business'&&taxNumber&&taxNumber.length!==10){alert('사업자등록번호는 숫자 10자리로 입력해 주세요.');return;}
 
+
 const payload = {
   name,
   phone,
@@ -127,9 +128,7 @@ const payload = {
   kind,
   amount,
   currentMonthly: current,
- 
-pledgeDuration = document.getElementById('wPledgeDuration').value;
-
+  pledgeDuration,
   pledgeDetail: detail,
   notes,
   taxType,
@@ -139,6 +138,7 @@ pledgeDuration = document.getElementById('wPledgeDuration').value;
   page: '마을언덕_캠페인',
   submittedAt: new Date().toISOString()
 };
+
 
  const form=document.createElement('form');form.method='POST';form.action=APPS_SCRIPT_WEB_APP_URL;form.target='submitFrame';form.style.display='none';
  const input=document.createElement('input');input.type='hidden';input.name='payload';input.value=JSON.stringify(payload);form.appendChild(input);document.body.appendChild(form);
