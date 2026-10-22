@@ -20,7 +20,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -89,7 +88,6 @@
       padding-bottom: 65px;
     }
 
-    /* 첫 화면: 실제 활동 사진 */
     .hero {
       position: relative;
       overflow: hidden;
@@ -227,7 +225,6 @@
       font-size: 13px;
     }
 
-    /* 참여 방식에 따라 표시되는 영역 */
     .form-section { display: none; }
     .form-section.visible { display: block; }
 
@@ -343,59 +340,78 @@
       background: var(--cream);
     }
 
-    .amount-preview > span {
-      color: var(--muted);
-      font-size: 13px;
+    .amount-preview span { color: var(--muted); font-size: 13px; }
+    .amount-preview strong { color: var(--navy); font-size: 23px; }
+
+    .amount-calculation {
+      margin-top: 16px;
+      padding: 20px;
+      border-radius: 14px;
+      background: var(--cream);
     }
 
-    .amount-preview > strong {
-      color: var(--navy);
-      font-size: 23px;
-    }
-
-    /* 기존 후원금 증액 계산 영역 */
-    .amount-preview-stack {
-      display: block;
-    }
-
-    .amount-preview-stack .calculation-label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .amount-preview-stack .calculation-equation {
-      display: block;
-      color: var(--navy);
-      font-size: clamp(17px, 3vw, 23px);
-      font-weight: 800;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-    }
-
-    .amount-preview-stack .calculation-total {
+    .amount-calculation .equation {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 15px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
     }
 
-    .amount-preview-stack .calculation-total span {
+    .amount-calculation .equation strong {
+      color: var(--navy);
+      font-size: 17px;
+    }
+
+    .amount-calculation .total {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .amount-calculation .total span {
+      display: block;
       color: var(--muted);
+      font-size: 13px;
+    }
+
+    .amount-calculation .total strong {
+      color: var(--coral);
+      font-size: 28px;
+    }
+
+    .preview-card {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fffdfa;
+    }
+
+    .preview-card h4 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 15px;
+    }
+
+    .preview-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 5px 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee9e2;
       font-size: 14px;
     }
 
-    .amount-preview-stack .calculation-total strong {
-      color: #a95041;
-      font-size: clamp(23px, 4vw, 29px);
-    }
-
-    [hidden] { display: none !important; }
+    .preview-line:last-child { border-bottom: 0; }
+    .preview-label { color: var(--muted); min-width: 90px; }
+    .preview-value { color: var(--navy); font-weight: 700; overflow-wrap: anywhere; }
+    .preview-empty { color: #92979c; font-weight: 400; }
 
     .consent-box {
       padding: 18px;
@@ -456,11 +472,7 @@
     .form-message.error { background: #fff0ed; color: #a13f31; }
     .form-message.success { background: #edf6f0; color: #32664e; }
 
-    /* FAQ */
-    .faq-list {
-      display: grid;
-      gap: 12px;
-    }
+    .faq-list { display: grid; gap: 12px; }
 
     .faq-item {
       overflow: hidden;
@@ -502,7 +514,6 @@
 
     .faq-answer p { margin: 0; }
 
-    /* 마지막 활동 사진 영역 */
     .closing-photo {
       position: relative;
       overflow: hidden;
@@ -518,11 +529,7 @@
     }
 
     .closing-photo .section-kicker { color: #ffd0c5; }
-
-    .closing-photo h2 {
-      color: white;
-      max-width: 700px;
-    }
+    .closing-photo h2 { color: white; max-width: 700px; }
 
     .closing-photo p {
       max-width: 680px;
@@ -557,7 +564,8 @@
       .tiles, .field-grid, .choices { grid-template-columns: 1fr; }
       .tile { min-height: 145px; }
       .field.full { grid-column: auto; }
-      .amount-preview > strong { font-size: 20px; }
+      .amount-preview strong { font-size: 20px; }
+      .amount-calculation .equation { flex-direction: column; }
     }
   </style>
 </head>
@@ -566,11 +574,9 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="마을언덕 캠페인 첫 화면">
-        <img
-          src="maeul-logo.png"
-          alt="마을언덕 사회적협동조합 로고"
-          onerror="this.style.display='none'"
-        >
+        <img src="maeul-logo.png"
+             alt="마을언덕 사회적협동조합 로고"
+             onerror="this.style.display='none'">
         <span>마을언덕 사회적협동조합</span>
       </a>
       <span class="header-label">함께 만드는 지속 가능한 마을</span>
@@ -578,7 +584,6 @@
   </header>
 
   <main id="top">
-    <!-- 첫 화면: 실제 활동 사진 -->
     <section class="hero">
       <h1>일상을 지키는 마음,<br>내일을 여는 약속</h1>
       <p>
@@ -588,7 +593,6 @@
       <div class="hero-note">함께할 수 있는 방식으로 마음을 보태주세요</div>
     </section>
 
-    <!-- 후원 방식 선택 -->
     <section class="section" id="wChoice">
       <div class="section-heading">
         <p class="section-kicker">TOGETHER WITH YOU</p>
@@ -625,7 +629,6 @@
       </div>
     </section>
 
-    <!-- 신청 내용 입력 -->
     <section class="section form-section" id="wForm">
       <div class="section-heading">
         <p class="section-kicker">YOUR PARTICIPATION</p>
@@ -643,98 +646,72 @@
           <h3>증액할 후원금</h3>
 
           <div class="field">
-            <span class="field-label">
-              현재 월 후원금 <span class="required">*</span>
-            </span>
-
+            <span class="field-label">현재 월 후원금 <span class="required">*</span></span>
             <div class="choices">
               <div class="choice">
                 <input type="radio" id="current10000" name="currentMonthlyChoice" value="10000">
                 <label for="current10000">10,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="current15000" name="currentMonthlyChoice" value="15000">
                 <label for="current15000">15,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="current20000" name="currentMonthlyChoice" value="20000">
                 <label for="current20000">20,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="current30000" name="currentMonthlyChoice" value="30000">
                 <label for="current30000">30,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="currentOther" name="currentMonthlyChoice" value="other">
                 <label for="currentOther">직접 입력</label>
               </div>
             </div>
-
-            <p class="help">
-              현재 매월 납부하고 있는 후원금을 선택해 주세요.
-              목록에 없다면 직접 입력할 수 있습니다.
-            </p>
           </div>
 
           <div class="field" id="currentOtherWrap" hidden>
-            <label for="currentOtherAmount">
-              현재 월 후원금 직접 입력 (원) <span class="required">*</span>
-            </label>
-            <input
-              id="currentOtherAmount"
-              type="number"
-              min="1"
-              step="1"
-              inputmode="numeric"
-              placeholder="예: 25000"
-            >
+            <label for="currentOtherAmount">현재 월 후원금 (원) <span class="required">*</span></label>
+            <input id="currentOtherAmount" type="number" min="1000" step="1000"
+                   inputmode="numeric" placeholder="예: 25000">
+            <p class="help">현재 납부하고 있는 월 후원금을 입력해 주세요.</p>
           </div>
 
           <div class="field">
-            <span class="field-label">
-              매월 추가할 금액 <span class="required">*</span>
-            </span>
-
+            <span class="field-label">매월 추가할 금액 <span class="required">*</span></span>
             <div class="choices">
               <div class="choice">
                 <input type="radio" id="inc5000" name="increaseAmount" value="5000">
                 <label for="inc5000">5,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="inc10000" name="increaseAmount" value="10000">
                 <label for="inc10000">10,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="inc15000" name="increaseAmount" value="15000">
                 <label for="inc15000">15,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="inc20000" name="increaseAmount" value="20000">
                 <label for="inc20000">20,000원</label>
               </div>
             </div>
-
             <p class="help">증액 신청의 최소 금액은 월 5,000원입니다.</p>
           </div>
 
-          <!-- 현재 후원금 + 추가 금액 = 총 후원금 -->
-          <div class="amount-preview amount-preview-stack">
-            <span class="calculation-label">현재 월 후원금 + 매월 추가할 금액</span>
-
-            <strong class="calculation-equation" id="incEquation">
-              선택 전 + 선택 전 = 선택 전
-            </strong>
-
-            <div class="calculation-total">
-              <span>증액 후 총 월 후원금</span>
+          <div class="amount-calculation">
+            <div class="equation">
+              <span>현재 월 후원금</span>
+              <strong id="currentPreview">선택 전</strong>
+              <span>＋</span>
+              <span>매월 추가할 금액</span>
               <strong id="incPreview">선택 전</strong>
+            </div>
+            <div class="total">
+              <span>증액 후 매월 총 후원금</span>
+              <strong id="totalPreview">선택 전</strong>
             </div>
           </div>
         </div>
@@ -744,36 +721,28 @@
           <h3>시작할 정기후원</h3>
 
           <div class="field">
-            <span class="field-label">
-              매월 후원할 금액 <span class="required">*</span>
-            </span>
-
+            <span class="field-label">매월 후원할 금액 <span class="required">*</span></span>
             <div class="choices">
-              <div class="choice">
-                <input type="radio" id="new5000" name="newAmount" value="5000">
-                <label for="new5000">5,000원</label>
-              </div>
-
               <div class="choice">
                 <input type="radio" id="new10000" name="newAmount" value="10000">
                 <label for="new10000">10,000원</label>
               </div>
-
+              <div class="choice">
+                <input type="radio" id="new15000" name="newAmount" value="15000">
+                <label for="new15000">15,000원</label>
+              </div>
               <div class="choice">
                 <input type="radio" id="new20000" name="newAmount" value="20000">
                 <label for="new20000">20,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="new30000" name="newAmount" value="30000">
                 <label for="new30000">30,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="new50000" name="newAmount" value="50000">
                 <label for="new50000">50,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="newOther" name="newAmount" value="other">
                 <label for="newOther">직접 입력</label>
@@ -782,21 +751,10 @@
           </div>
 
           <div class="field" id="newOtherWrap" hidden>
-            <label for="newOtherAmount">
-              희망 월 후원금 (원) <span class="required">*</span>
-            </label>
-            <input
-              id="newOtherAmount"
-              type="number"
-              min="5000"
-              max="50000"
-              step="1000"
-              inputmode="numeric"
-              placeholder="예: 15000"
-            >
-            <p class="help">
-              직접 입력 시 최소 5,000원, 최대 50,000원까지 입력할 수 있습니다.
-            </p>
+            <label for="newOtherAmount">희망 월 후원금 (원) <span class="required">*</span></label>
+            <input id="newOtherAmount" type="number" min="10000" max="50000"
+                   step="1000" inputmode="numeric" placeholder="예: 25000">
+            <p class="help">직접 입력 시 최소 10,000원 최대 50,000원까지 입력할 수 있습니다.</p>
           </div>
 
           <div class="amount-preview">
@@ -810,26 +768,20 @@
           <h3>집중성장을 위한 정기후원</h3>
 
           <div class="field">
-            <span class="field-label">
-              매월 후원할 금액 <span class="required">*</span>
-            </span>
-
+            <span class="field-label">매월 후원할 금액 <span class="required">*</span></span>
             <div class="choices">
               <div class="choice">
                 <input type="radio" id="major100000" name="majorAmount" value="100000">
                 <label for="major100000">100,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="major200000" name="majorAmount" value="200000">
                 <label for="major200000">200,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="major300000" name="majorAmount" value="300000">
                 <label for="major300000">300,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="majorOther" name="majorAmount" value="other">
                 <label for="majorOther">직접 입력</label>
@@ -838,17 +790,9 @@
           </div>
 
           <div class="field" id="majorOtherWrap" hidden>
-            <label for="majorOtherAmount">
-              희망 월 후원금 (원) <span class="required">*</span>
-            </label>
-            <input
-              id="majorOtherAmount"
-              type="number"
-              min="1000"
-              step="1000"
-              inputmode="numeric"
-              placeholder="예: 500000"
-            >
+            <label for="majorOtherAmount">희망 월 후원금 (원) <span class="required">*</span></label>
+            <input id="majorOtherAmount" type="number" min="1000" step="1000"
+                   inputmode="numeric" placeholder="예: 500000">
           </div>
 
           <div class="amount-preview">
@@ -862,50 +806,32 @@
           <h3>약정 후원 내용</h3>
 
           <div class="field">
-            <span class="field-label">
-              희망 약정 후원금 <span class="required">*</span>
-            </span>
-
+            <span class="field-label">희망 약정 후원금 <span class="required">*</span></span>
             <div class="choices">
               <div class="choice">
                 <input type="radio" id="pledge200000" name="pledgeAmount" value="200000">
                 <label for="pledge200000">200,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="pledge300000" name="pledgeAmount" value="300000">
                 <label for="pledge300000">300,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="pledge500000" name="pledgeAmount" value="500000">
                 <label for="pledge500000">500,000원</label>
               </div>
-
               <div class="choice">
                 <input type="radio" id="pledgeOther" name="pledgeAmount" value="other">
                 <label for="pledgeOther">직접 입력</label>
               </div>
             </div>
-
-            <p class="help">
-              희망하는 약정 금액을 선택해 주세요.
-              구체적인 후원 방식은 담당자가 확인 후 안내드립니다.
-            </p>
+            <p class="help">구체적인 후원 방식은 담당자가 확인 후 안내드립니다.</p>
           </div>
 
           <div class="field" id="pledgeOtherWrap" hidden>
-            <label for="pledgeOtherAmount">
-              직접 입력할 금액 (원) <span class="required">*</span>
-            </label>
-            <input
-              id="pledgeOtherAmount"
-              type="number"
-              min="1000"
-              step="1000"
-              inputmode="numeric"
-              placeholder="예: 1000000"
-            >
+            <label for="pledgeOtherAmount">직접 입력할 금액 (원) <span class="required">*</span></label>
+            <input id="pledgeOtherAmount" type="number" min="1000" step="1000"
+                   inputmode="numeric" placeholder="예: 1000000">
           </div>
 
           <div class="amount-preview">
@@ -914,9 +840,7 @@
           </div>
 
           <div class="field">
-            <label for="wPledgeDuration">
-              약정 후원 기간 <span class="required">*</span>
-            </label>
+            <label for="wPledgeDuration">약정 후원 기간 <span class="required">*</span></label>
             <select id="wPledgeDuration">
               <option value="">기간을 선택해 주세요</option>
               <option value="3개월">3개월</option>
@@ -930,10 +854,7 @@
 
           <div class="field">
             <label for="wPledgeDetail">약정 관련 상세 내용</label>
-            <textarea
-              id="wPledgeDetail"
-              placeholder="희망하는 후원 방식이나 전달하고 싶은 내용을 적어 주세요."
-            ></textarea>
+            <textarea id="wPledgeDetail" placeholder="희망하는 후원 방식이나 전달하고 싶은 내용을 적어 주세요."></textarea>
           </div>
         </div>
 
@@ -943,55 +864,49 @@
 
           <div class="field-grid">
             <div class="field">
-              <label for="wName">
-                이름 <span class="required">*</span>
-              </label>
-              <input
-                id="wName"
-                name="name"
-                autocomplete="name"
-                required
-                placeholder="이름을 입력해 주세요"
-              >
+              <label for="wName">이름 <span class="required">*</span></label>
+              <input id="wName" name="name" autocomplete="name"
+                     required placeholder="이름을 입력해 주세요">
             </div>
 
             <div class="field">
-              <label for="wPhone">
-                연락처 <span class="required">*</span>
-              </label>
-              <input
-                id="wPhone"
-                name="phone"
-                type="tel"
-                autocomplete="tel"
-                required
-                placeholder="예: 010-1234-5678"
-              >
+              <label for="wPhone">연락처 <span class="required">*</span></label>
+              <input id="wPhone" name="phone" type="tel" autocomplete="tel"
+                     required placeholder="예: 010-1234-5678">
             </div>
 
             <div class="field full">
               <label for="wEmail">이메일 (선택)</label>
-              <input
-                id="wEmail"
-                name="email"
-                type="email"
-                autocomplete="email"
-                placeholder="예: example@email.com"
-              >
+              <input id="wEmail" name="email" type="email" autocomplete="email"
+                     placeholder="예: example@email.com">
             </div>
 
             <div class="field full">
               <label for="wNotes">문의 및 전달 사항 (선택)</label>
-              <textarea
-                id="wNotes"
-                name="notes"
-                placeholder="추가로 전달하고 싶은 내용이 있다면 입력해 주세요."
-              ></textarea>
+              <textarea id="wNotes" name="notes"
+                        placeholder="추가로 전달하고 싶은 내용이 있다면 입력해 주세요."></textarea>
+            </div>
+          </div>
+
+          <!-- 입력한 신청자 정보 미리보기 -->
+          <div class="preview-card" aria-live="polite">
+            <h4>작성한 신청자 정보 확인</h4>
+            <div class="preview-line">
+              <span class="preview-label">이름</span>
+              <span class="preview-value preview-empty" id="applicantNamePreview">입력 전</span>
+            </div>
+            <div class="preview-line">
+              <span class="preview-label">연락처</span>
+              <span class="preview-value preview-empty" id="applicantPhonePreview">입력 전</span>
+            </div>
+            <div class="preview-line" id="applicantEmailLine" hidden>
+              <span class="preview-label">이메일</span>
+              <span class="preview-value" id="applicantEmailPreview"></span>
             </div>
           </div>
         </div>
 
-        <!-- 기부금 영수증 -->
+        <!-- 기부금 영수증 정보 -->
         <div class="form-block">
           <h3>기부금 영수증 정보</h3>
           <p class="section-description">
@@ -1009,14 +924,9 @@
 
           <div class="field" id="taxNumberWrap" hidden>
             <label for="wTaxNumber" id="taxNumberLabel">발급 번호</label>
-            <input
-              id="wTaxNumber"
-              name="taxNumber"
-              type="text"
-              inputmode="numeric"
-              autocomplete="off"
-              placeholder="번호를 입력해 주세요"
-            >
+            <input id="wTaxNumber" name="taxNumber" type="text"
+                   inputmode="numeric" autocomplete="off"
+                   placeholder="번호를 입력해 주세요">
             <p class="help" id="taxNumberHelp">
               번호를 입력할 때 하이픈(-)은 있어도 됩니다.
             </p>
@@ -1033,18 +943,24 @@
               </div>
             </div>
           </div>
+
+          <!-- 발급 대상을 선택했을 때만 나타나는 영수증 정보 미리보기 -->
+          <div class="preview-card" id="taxPreviewCard" hidden aria-live="polite">
+            <h4>기부금 영수증 정보 확인</h4>
+            <div class="preview-line">
+              <span class="preview-value" id="taxPreviewText"></span>
+            </div>
+          </div>
         </div>
 
         <!-- 개인정보 동의 -->
         <div class="form-block">
           <h3>개인정보 수집 및 이용 동의</h3>
-
           <div class="consent-box">
             <p class="section-description" style="margin-top:0">
               신청 접수와 후원 관련 안내를 위해 이름, 연락처 및 신청 내용 등을 수집·이용합니다.
               실제 운영 기관의 개인정보 처리 방침에 맞는 세부 내용과 보유 기간을 확인해 주세요.
             </p>
-
             <div class="check-row">
               <input type="checkbox" id="wConsent" name="consent" required>
               <label for="wConsent">
@@ -1056,9 +972,7 @@
         </div>
 
         <div class="submit-row">
-          <button class="submit-button" id="submitButton" type="submit">
-            후원 신청하기
-          </button>
+          <button class="submit-button" id="submitButton" type="submit">후원 신청하기</button>
           <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
         </div>
       </form>
@@ -1076,72 +990,47 @@
         <details class="faq-item">
           <summary>기존 후원금은 어떻게 증액할 수 있나요?</summary>
           <div class="faq-answer">
-            <p>
-              ‘기존 후원금 증액’을 선택하고 현재 월 후원금과 매월 추가할 금액을 골라 신청해 주세요.
-              증액 신청의 최소 금액은 월 5,000원입니다.
-              신청 내용 확인 후 담당자가 후원 변경 절차를 안내드립니다.
-            </p>
+            <p>‘기존 후원금 증액’을 선택하고 현재 월 후원금과 매월 추가할 금액을 골라 신청해 주세요. 증액 신청의 최소 금액은 월 5,000원입니다. 신청 내용 확인 후 담당자가 후원 변경 절차를 안내드립니다.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>처음 후원하려면 어떻게 해야 하나요?</summary>
           <div class="faq-answer">
-            <p>
-              ‘정기후원 시작’을 선택한 뒤 매월 후원할 금액과 신청자 정보를 입력해 주세요.
-              직접 입력하는 경우 최소 금액은 5,000원이며, 최대 금액은 50,000원입니다.
-              이 페이지는 신청 내용을 접수하는 페이지이며, 실제 정기결제 등록은 별도의 안내나 절차가 필요할 수 있습니다.
-            </p>
+            <p>‘정기후원 시작’을 선택한 뒤 매월 후원할 금액과 신청자 정보를 입력해 주세요. 이 페이지는 신청 내용을 접수하는 페이지이며, 실제 정기결제 등록은 별도의 안내나 절차가 필요할 수 있습니다.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>고액 정기후원과 약정후원은 무엇이 다른가요?</summary>
           <div class="faq-answer">
-            <p>
-              고액 정기후원은 매월 일정한 금액으로 마을언덕의 활동을 지속적으로 지원하는 방식입니다.
-              약정후원은 희망 금액과 기간을 정해 중장기 활동을 함께 준비하는 방식으로,
-              구체적인 조건은 담당자와 협의할 수 있습니다.
-            </p>
+            <p>고액 정기후원은 매월 일정한 금액으로 마을언덕의 활동을 지속적으로 지원하는 방식입니다. 약정후원은 희망 금액과 기간을 정해 중장기 활동을 함께 준비하는 방식으로, 구체적인 조건은 담당자와 협의할 수 있습니다.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>약정후원 기간이나 금액을 상담할 수 있나요?</summary>
           <div class="faq-answer">
-            <p>
-              네. 약정후원 신청에서 금액과 기간을 선택하고 전달 사항을 적어 주세요.
-              제시된 선택지 외의 금액이나 기간은 담당자와 협의할 수 있습니다.
-            </p>
+            <p>네. 약정후원 신청에서 금액과 기간을 선택하고 전달 사항을 적어 주세요. 제시된 선택지 외의 금액이나 기간은 담당자와 협의할 수 있습니다.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>기부금 영수증은 어떻게 신청하나요?</summary>
           <div class="faq-answer">
-            <p>
-              기부금 영수증 발급이 필요하면 발급 대상을 선택하고 해당 번호를 입력한 뒤
-              정보 수집 및 이용에 동의해 주세요. 개인은 주민등록번호 13자리,
-              사업자는 사업자등록번호 10자리가 필요합니다.
-              실제 발급 가능 여부와 발급 시기는 담당자에게 확인해 주세요.
-            </p>
+            <p>기부금 영수증 발급이 필요하면 발급 대상을 선택하고 해당 번호를 입력한 뒤 정보 수집 및 이용에 동의해 주세요. 개인은 주민등록번호 13자리, 사업자는 사업자등록번호 10자리가 필요합니다. 실제 발급 가능 여부와 발급 시기는 담당자에게 확인해 주세요.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>신청 후에는 어떻게 진행되나요?</summary>
           <div class="faq-answer">
-            <p>
-              신청 내용이 접수되면 담당자가 내용을 확인하고 필요한 경우 연락드립니다.
-              신청 전송이 완료되었다는 화면만으로 실제 접수 여부가 확정되는 것은 아니므로,
-              문제가 있거나 확인이 필요하면 마을언덕에 문의해 주세요.
-            </p>
+            <p>신청 내용이 접수되면 담당자가 내용을 확인하고 필요한 경우 연락드립니다. 신청 전송이 완료되었다는 화면만으로 실제 접수 여부가 확정되는 것은 아니므로, 문제가 있거나 확인이 필요하면 마을언덕에 문의해 주세요.</p>
           </div>
         </details>
       </div>
     </section>
 
-    <!-- 마지막 활동 사진 영역 -->
     <section class="closing-photo">
       <p class="section-kicker">함께 만드는 마을의 내일</p>
       <h2>여러분의 꾸준한 참여가<br>우리가 바라는 마을을 만들어갑니다.</h2>
@@ -1169,7 +1058,7 @@
     const kinds = {
       increase: {
         title: '매월 추가할 금액을 선택해 주세요',
-        description: '현재 월 후원금과 증액할 금액을 선택해 주세요.',
+        description: '현재 월 후원금과 추가할 금액을 선택해 주세요.',
         section: 'wInc',
         button: '증액 신청하기'
       },
@@ -1197,11 +1086,7 @@
 
     function won(value) {
       const number = Number(value);
-
-      if (!Number.isFinite(number) || number <= 0) {
-        return '선택 전';
-      }
-
+      if (!Number.isFinite(number) || number <= 0) return '선택 전';
       return number.toLocaleString('ko-KR') + '원';
     }
 
@@ -1209,45 +1094,10 @@
       const item = document.querySelector(
         'input[name="' + name + '"]:checked'
       );
-
       return item ? item.value : '';
     }
 
-    /* 선택된 방식에 따른 후원 금액 */
-    function selectedAmount() {
-      if (selectedKind === 'increase') {
-        return Number(selectedRadio('increaseAmount') || 0);
-      }
-
-      if (selectedKind === 'new') {
-        const value = selectedRadio('newAmount');
-
-        return value === 'other'
-          ? Number(document.getElementById('newOtherAmount').value || 0)
-          : Number(value || 0);
-      }
-
-      if (selectedKind === 'major') {
-        const value = selectedRadio('majorAmount');
-
-        return value === 'other'
-          ? Number(document.getElementById('majorOtherAmount').value || 0)
-          : Number(value || 0);
-      }
-
-      if (selectedKind === 'pledge') {
-        const value = selectedRadio('pledgeAmount');
-
-        return value === 'other'
-          ? Number(document.getElementById('pledgeOtherAmount').value || 0)
-          : Number(value || 0);
-      }
-
-      return 0;
-    }
-
-    /* 현재 월 후원금 선택값을 숫자로 변환 */
-    function selectedCurrentMonthly() {
+    function currentMonthlyAmount() {
       const value = selectedRadio('currentMonthlyChoice');
 
       if (value === 'other') {
@@ -1259,43 +1109,59 @@
       return Number(value || 0);
     }
 
-    /* 각 후원 금액 미리보기 및 증액 후 총액 계산 */
+    function selectedAmount() {
+      if (selectedKind === 'increase') {
+        return Number(selectedRadio('increaseAmount') || 0);
+      }
+
+      if (selectedKind === 'new') {
+        const value = selectedRadio('newAmount');
+        return value === 'other'
+          ? Number(document.getElementById('newOtherAmount').value || 0)
+          : Number(value || 0);
+      }
+
+      if (selectedKind === 'major') {
+        const value = selectedRadio('majorAmount');
+        return value === 'other'
+          ? Number(document.getElementById('majorOtherAmount').value || 0)
+          : Number(value || 0);
+      }
+
+      if (selectedKind === 'pledge') {
+        const value = selectedRadio('pledgeAmount');
+        return value === 'other'
+          ? Number(document.getElementById('pledgeOtherAmount').value || 0)
+          : Number(value || 0);
+      }
+
+      return 0;
+    }
+
     function updatePreviews() {
       const currentChoice = selectedRadio('currentMonthlyChoice');
-      const currentOtherWrap = document.getElementById('currentOtherWrap');
-      const currentOtherAmount = document.getElementById('currentOtherAmount');
+      const currentWrap = document.getElementById('currentOtherWrap');
+      const currentInput = document.getElementById('currentOtherAmount');
 
-      currentOtherWrap.hidden = currentChoice !== 'other';
-      currentOtherAmount.required =
+      currentWrap.hidden = currentChoice !== 'other';
+      currentInput.required =
         selectedKind === 'increase' && currentChoice === 'other';
 
-      const currentAmount = selectedCurrentMonthly();
-      const increaseAmount = Number(
-        selectedRadio('increaseAmount') || 0
-      );
+      const currentAmount = currentMonthlyAmount();
+      const increaseAmount = Number(selectedRadio('increaseAmount') || 0);
 
-      const currentText = currentAmount > 0
-        ? won(currentAmount)
-        : '선택 전';
-
-      const increaseText = increaseAmount > 0
-        ? won(increaseAmount)
-        : '선택 전';
-
-      const total = currentAmount + increaseAmount;
-
-      document.getElementById('incEquation').textContent =
-        currentText + ' + ' + increaseText + ' = ' +
-        (currentAmount > 0 && increaseAmount > 0 ? won(total) : '선택 전');
+      document.getElementById('currentPreview').textContent =
+        won(currentAmount);
 
       document.getElementById('incPreview').textContent =
+        won(increaseAmount);
+
+      document.getElementById('totalPreview').textContent =
         currentAmount > 0 && increaseAmount > 0
-          ? won(total)
+          ? won(currentAmount + increaseAmount)
           : '선택 전';
 
-      /* 신규 정기후원 */
       const newValue = selectedRadio('newAmount');
-
       document.getElementById('newOtherWrap').hidden =
         newValue !== 'other';
 
@@ -1307,9 +1173,7 @@
           ? won(document.getElementById('newOtherAmount').value)
           : won(Number(newValue || 0));
 
-      /* 고액 정기후원 */
       const majorValue = selectedRadio('majorAmount');
-
       document.getElementById('majorOtherWrap').hidden =
         majorValue !== 'other';
 
@@ -1321,9 +1185,7 @@
           ? won(document.getElementById('majorOtherAmount').value)
           : won(Number(majorValue || 0));
 
-      /* 약정후원 */
       const pledgeValue = selectedRadio('pledgeAmount');
-
       document.getElementById('pledgeOtherWrap').hidden =
         pledgeValue !== 'other';
 
@@ -1336,7 +1198,6 @@
           : won(Number(pledgeValue || 0));
     }
 
-    /* 후원 방식 선택 */
     function chooseKind(kind) {
       if (!kinds[kind]) return;
 
@@ -1345,7 +1206,6 @@
 
       document.querySelectorAll('.tile').forEach(function(tile) {
         const active = tile.dataset.kind === kind;
-
         tile.classList.toggle('active', active);
         tile.setAttribute('aria-pressed', String(active));
       });
@@ -1355,12 +1215,9 @@
       });
 
       formSection.classList.add('visible');
-
       document.getElementById(kinds[kind].section).classList.add('visible');
 
-      document.getElementById('wTitle').textContent =
-        kinds[kind].title;
-
+      document.getElementById('wTitle').textContent = kinds[kind].title;
       document.getElementById('wDescription').textContent =
         kinds[kind].description;
 
@@ -1370,11 +1227,7 @@
       messageBox.textContent = '';
 
       updatePreviews();
-
-      formSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     document.querySelectorAll('.tile').forEach(function(tile) {
@@ -1383,7 +1236,6 @@
       });
     });
 
-    /* 금액 선택이 바뀌면 미리보기 다시 계산 */
     document.querySelectorAll(
       'input[name="currentMonthlyChoice"], ' +
       'input[name="increaseAmount"], ' +
@@ -1400,58 +1252,104 @@
       'majorOtherAmount',
       'pledgeOtherAmount'
     ].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', updatePreviews);
+    });
+
+    /* 신청자 정보 미리보기 */
+    function updateApplicantPreview() {
+      const name = document.getElementById('wName').value.trim();
+      const phone = document.getElementById('wPhone').value.trim();
+      const email = document.getElementById('wEmail').value.trim();
+
+      const namePreview = document.getElementById('applicantNamePreview');
+      const phonePreview = document.getElementById('applicantPhonePreview');
+      const emailLine = document.getElementById('applicantEmailLine');
+      const emailPreview = document.getElementById('applicantEmailPreview');
+
+      namePreview.textContent = name || '입력 전';
+      namePreview.classList.toggle('preview-empty', !name);
+
+      phonePreview.textContent = phone || '입력 전';
+      phonePreview.classList.toggle('preview-empty', !phone);
+
+      emailLine.hidden = !email;
+      emailPreview.textContent = email;
+    }
+
+    ['wName', 'wPhone', 'wEmail'].forEach(function(id) {
       document.getElementById(id).addEventListener(
         'input',
-        updatePreviews
+        updateApplicantPreview
       );
     });
 
-    /* 기부금 영수증 발급 대상에 따라 번호 입력 안내 변경 */
-    document.getElementById('wTaxType').addEventListener(
-      'change',
-      function() {
-        const type = this.value;
-        const show = type !== '';
+    /* 기부금 영수증 발급 정보 */
+    function formatTaxPreviewNumber(type, rawNumber) {
+      const digits = rawNumber.replace(/\D/g, '');
 
-        document.getElementById('taxNumberWrap').hidden = !show;
-        document.getElementById('taxConsentWrap').hidden = !show;
-
-        const numberInput = document.getElementById('wTaxNumber');
-
-        numberInput.value = '';
-        numberInput.required = show;
-
-        document.getElementById('wTaxConsent').checked = false;
-        document.getElementById('wTaxConsent').required = show;
-
-        if (type === '개인(주민등록번호)') {
-          document.getElementById('taxNumberLabel').textContent =
-            '주민등록번호 13자리 *';
-
-          numberInput.placeholder = '예: 9001011234567';
-          numberInput.maxLength = 14;
-
-          document.getElementById('taxNumberHelp').textContent =
-            '주민등록번호 13자리를 입력해 주세요. 하이픈(-)은 입력해도 됩니다.';
-
-        } else if (type === '사업자(사업자등록번호)') {
-          document.getElementById('taxNumberLabel').textContent =
-            '사업자등록번호 10자리 *';
-
-          numberInput.placeholder = '예: 1234567890';
-          numberInput.maxLength = 12;
-
-          document.getElementById('taxNumberHelp').textContent =
-            '사업자등록번호 10자리를 입력해 주세요. 하이픈(-)은 입력해도 됩니다.';
-
-        } else {
-          document.getElementById('taxNumberLabel').textContent =
-            '발급 번호';
-
-          numberInput.placeholder = '번호를 입력해 주세요';
-          numberInput.removeAttribute('maxlength');
-        }
+      if (type === '개인(주민등록번호)') {
+        if (digits.length <= 6) return digits;
+        return digits.slice(0, 6) + '-' + digits.slice(6, 13);
       }
+
+      return digits;
+    }
+
+    function updateTaxPreview() {
+      const type = document.getElementById('wTaxType').value;
+      const rawNumber = document.getElementById('wTaxNumber').value.trim();
+      const previewCard = document.getElementById('taxPreviewCard');
+      const previewText = document.getElementById('taxPreviewText');
+
+      if (!type) {
+        previewCard.hidden = true;
+        previewText.textContent = '';
+        return;
+      }
+
+      const formattedNumber = formatTaxPreviewNumber(type, rawNumber);
+      previewCard.hidden = false;
+
+      previewText.textContent =
+        type + ' : ' + (formattedNumber || '번호 입력 전');
+    }
+
+    document.getElementById('wTaxType').addEventListener('change', function() {
+      const type = this.value;
+      const show = type !== '';
+
+      document.getElementById('taxNumberWrap').hidden = !show;
+      document.getElementById('taxConsentWrap').hidden = !show;
+
+      const numberInput = document.getElementById('wTaxNumber');
+      numberInput.value = '';
+      numberInput.required = show;
+
+      document.getElementById('wTaxConsent').checked = false;
+      document.getElementById('wTaxConsent').required = show;
+
+      if (type === '개인(주민등록번호)') {
+        document.getElementById('taxNumberLabel').textContent =
+          '주민등록번호 13자리 *';
+        numberInput.placeholder = '예: 9001011234567';
+        numberInput.maxLength = 14;
+        document.getElementById('taxNumberHelp').textContent =
+          '주민등록번호 13자리를 입력해 주세요. 하이픈(-)은 입력해도 됩니다.';
+      } else if (type === '사업자(사업자등록번호)') {
+        document.getElementById('taxNumberLabel').textContent =
+          '사업자등록번호 10자리 *';
+        numberInput.placeholder = '예: 1234567890';
+        numberInput.maxLength = 12;
+        document.getElementById('taxNumberHelp').textContent =
+          '사업자등록번호 10자리를 입력해 주세요. 하이픈(-)은 입력해도 됩니다.';
+      }
+
+      updateTaxPreview();
+    });
+
+    document.getElementById('wTaxNumber').addEventListener(
+      'input',
+      updateTaxPreview
     );
 
     function showMessage(text, type) {
@@ -1459,35 +1357,24 @@
       messageBox.className = 'form-message visible ' + type;
     }
 
-    /* 입력 내용 검증 */
     function validateDonation() {
       if (!selectedKind) {
         alert('먼저 함께할 후원 방식을 선택해 주세요.');
-
         document.getElementById('wChoice').scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
-
         return false;
       }
 
       if (selectedKind === 'increase') {
-        const currentAmount = selectedCurrentMonthly();
-        const increaseAmount = selectedAmount();
-
-        if (currentAmount <= 0) {
+        if (currentMonthlyAmount() < 1000) {
           alert('현재 월 후원금을 선택하거나 직접 입력해 주세요.');
-
-          if (selectedRadio('currentMonthlyChoice') === 'other') {
-            document.getElementById('currentOtherAmount').focus();
-          }
-
           return false;
         }
 
-        if (increaseAmount < 5000) {
-          alert('매월 추가할 금액을 선택해 주세요. 최소 증액 금액은 5,000원입니다.');
+        if (selectedAmount() < 5000) {
+          alert('추가할 금액을 선택해 주세요. 최소 증액 금액은 5,000원입니다.');
           return false;
         }
       }
@@ -1495,35 +1382,20 @@
       if (selectedKind === 'new') {
         const amount = selectedAmount();
 
-        if (amount < 5000 || amount > 50000) {
-          alert('정기후원 금액은 5,000원 이상 50,000원 이하로 선택해 주세요.');
-
-          if (selectedRadio('newAmount') === 'other') {
-            document.getElementById('newOtherAmount').focus();
-          }
-
+        if (amount < 10000 || amount > 50000) {
+          alert('정기후원 금액은 10,000원 이상 50,000원 이하로 선택해 주세요.');
           return false;
         }
       }
 
       if (selectedKind === 'major' && selectedAmount() < 1000) {
         alert('고액 정기후원 금액을 선택하거나 입력해 주세요.');
-
-        if (selectedRadio('majorAmount') === 'other') {
-          document.getElementById('majorOtherAmount').focus();
-        }
-
         return false;
       }
 
       if (selectedKind === 'pledge') {
         if (selectedAmount() < 1000) {
           alert('약정 후원 금액을 선택하거나 직접 입력해 주세요.');
-
-          if (selectedRadio('pledgeAmount') === 'other') {
-            document.getElementById('pledgeOtherAmount').focus();
-          }
-
           return false;
         }
 
@@ -1534,18 +1406,13 @@
         }
       }
 
-      /* 기부금 영수증 번호 검증 */
       const taxType = document.getElementById('wTaxType').value;
 
       if (taxType) {
-        const rawNumber =
-          document.getElementById('wTaxNumber').value.trim();
-
+        const rawNumber = document.getElementById('wTaxNumber').value.trim();
         const digits = rawNumber.replace(/\D/g, '');
-
         const expectedLength =
           taxType === '개인(주민등록번호)' ? 13 : 10;
-
         const label =
           taxType === '개인(주민등록번호)'
             ? '주민등록번호'
@@ -1556,7 +1423,6 @@
             label + '는 숫자 ' + expectedLength +
             '자리로 입력해 주세요.\n하이픈(-)은 입력하지 않아도 됩니다.'
           );
-
           document.getElementById('wTaxNumber').focus();
           return false;
         }
@@ -1570,7 +1436,6 @@
       return true;
     }
 
-    /* 신청 전송 */
     form.addEventListener('submit', async function(event) {
       event.preventDefault();
 
@@ -1578,73 +1443,42 @@
       if (!form.reportValidity()) return;
 
       const taxType = document.getElementById('wTaxType').value;
-
-      const taxNumber =
-        document.getElementById('wTaxNumber').value.trim();
-
+      const taxNumber = document.getElementById('wTaxNumber').value.trim();
       const taxNumberDigits = taxNumber.replace(/\D/g, '');
 
       let kindLabel = '';
+      if (selectedKind === 'increase') kindLabel = '기존 후원금 증액';
+      if (selectedKind === 'new') kindLabel = '정기후원 시작';
+      if (selectedKind === 'major') kindLabel = '고액 정기후원';
+      if (selectedKind === 'pledge') kindLabel = '약정 후원 문의';
 
-      if (selectedKind === 'increase') {
-        kindLabel = '기존 후원금 증액';
-      }
-
-      if (selectedKind === 'new') {
-        kindLabel = '정기후원 시작';
-      }
-
-      if (selectedKind === 'major') {
-        kindLabel = '고액 정기후원';
-      }
-
-      if (selectedKind === 'pledge') {
-        kindLabel = '약정 후원 문의';
-      }
+      const currentAmount =
+        selectedKind === 'increase' ? currentMonthlyAmount() : '';
 
       const payload = {
         name: document.getElementById('wName').value.trim(),
-
         phone: document.getElementById('wPhone').value.trim(),
-
         email: document.getElementById('wEmail').value.trim(),
-
         kind: kindLabel,
-
-        /* 증액 신청은 추가할 금액을 저장 */
         amount: selectedAmount(),
-
-        /* 증액 신청은 선택한 현재 월 후원금을 저장 */
-        currentMonthly: selectedKind === 'increase'
-          ? String(selectedCurrentMonthly())
-          : '',
-
+        currentMonthly: currentAmount,
         pledgeDuration: selectedKind === 'pledge'
           ? document.getElementById('wPledgeDuration').value
           : '',
-
         pledgeDetail: selectedKind === 'pledge'
           ? document.getElementById('wPledgeDetail').value.trim()
           : '',
-
         notes: document.getElementById('wNotes').value.trim(),
-
         taxType: taxType,
-
         taxNumber: taxNumberDigits,
-
         taxConsent: document.getElementById('wTaxConsent').checked,
-
         consent: document.getElementById('wConsent').checked,
-
         page: '마을언덕_캠페인',
-
         submittedAt: new Date().toISOString()
       };
 
       submitButton.disabled = true;
       submitButton.textContent = '신청 내용을 보내고 있습니다…';
-
       showMessage(
         '신청 내용을 전송하고 있습니다. 잠시만 기다려 주세요.',
         'success'
@@ -1661,7 +1495,6 @@
         });
 
         form.reset();
-
         selectedKind = '';
         document.getElementById('wKind').value = '';
 
@@ -1676,19 +1509,18 @@
 
         formSection.classList.remove('visible');
 
-        /* 직접 입력란과 영수증 입력란 초기화 */
         document.getElementById('currentOtherWrap').hidden = true;
         document.getElementById('newOtherWrap').hidden = true;
         document.getElementById('majorOtherWrap').hidden = true;
         document.getElementById('pledgeOtherWrap').hidden = true;
         document.getElementById('taxNumberWrap').hidden = true;
         document.getElementById('taxConsentWrap').hidden = true;
+        document.getElementById('taxPreviewCard').hidden = true;
+        document.getElementById('applicantEmailLine').hidden = true;
 
-        /* 금액 미리보기 초기화 */
         updatePreviews();
-
-        messageBox.className = 'form-message';
-        messageBox.textContent = '';
+        updateApplicantPreview();
+        updateTaxPreview();
 
         alert(
           '신청 내용을 전송했습니다.\n' +
@@ -1702,12 +1534,10 @@
 
       } catch (error) {
         console.error('후원 신청 전송 오류:', error);
-
         showMessage(
           '신청 내용을 전송하지 못했습니다. 인터넷 연결을 확인한 뒤 다시 시도해 주세요.',
           'error'
         );
-
       } finally {
         submitButton.disabled = false;
         submitButton.textContent =
@@ -1715,8 +1545,10 @@
       }
     });
 
-    /* 첫 화면에서는 신청 양식을 숨기고 금액 미리보기 초기화 */
+    /* 페이지 처음 열 때 미리보기 초기화 */
     updatePreviews();
+    updateApplicantPreview();
+    updateTaxPreview();
   </script>
 </body>
 </html>
