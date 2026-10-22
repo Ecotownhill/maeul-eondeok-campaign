@@ -546,6 +546,224 @@
 
     .footer strong { color: var(--navy); }
 
+
+    /* 고액 정기후원 전용 프리미엄 화면 */
+    .major-experience {
+      display: none;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 610px;
+      margin: 28px 0 30px;
+      padding: clamp(34px, 6vw, 78px);
+      border-radius: 28px;
+      color: #fff;
+      background: #152838;
+      box-shadow: 0 30px 80px rgba(18, 35, 49, .2);
+    }
+    .major-experience::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(13, 27, 39, .96) 0%, rgba(16, 33, 46, .88) 46%, rgba(17, 34, 46, .52) 100%),
+        linear-gradient(0deg, rgba(10, 24, 34, .55), transparent 55%),
+        url("달리고살리고.jpg") center 48% / cover no-repeat;
+      transform: scale(1.015);
+    }
+    .major-experience::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 440px;
+      height: 440px;
+      right: -155px;
+      top: -185px;
+      border: 1px solid rgba(226, 197, 145, .48);
+      border-radius: 50%;
+      box-shadow: 0 0 0 28px rgba(226,197,145,.055), 0 0 0 64px rgba(226,197,145,.04), 0 0 0 102px rgba(226,197,145,.025);
+      pointer-events: none;
+    }
+    .major-experience.visible {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(210px, 280px);
+      align-items: center;
+      gap: clamp(28px, 5vw, 72px);
+      animation: majorReveal .65s cubic-bezier(.2,.75,.25,1) both;
+    }
+    .major-copy { max-width: 690px; }
+    .major-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 28px;
+      color: #e8c995;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .22em;
+    }
+    .major-eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: #e8c995;
+    }
+    .major-experience h2 {
+      max-width: 700px;
+      margin: 0;
+      color: #fff;
+      font-size: clamp(38px, 5.2vw, 66px);
+      line-height: 1.2;
+      letter-spacing: -.065em;
+      font-weight: 750;
+      text-wrap: balance;
+    }
+    .major-experience .major-lead {
+      max-width: 570px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,.82);
+      font-size: clamp(14px, 1.5vw, 16px);
+      line-height: 2;
+      word-break: keep-all;
+    }
+    .major-rule {
+      width: 58px;
+      height: 2px;
+      margin: 28px 0 24px;
+      background: #d7b77d;
+    }
+    .major-values {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 800px;
+    }
+    .major-value {
+      padding: 15px 15px 16px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 12px;
+      background: rgba(255,255,255,.065);
+      backdrop-filter: blur(8px);
+    }
+    .major-value strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #e8c995;
+      font-size: 13px;
+      letter-spacing: -.02em;
+    }
+    .major-value span {
+      display: block;
+      color: rgba(255,255,255,.72);
+      font-size: 11px;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+    .major-aside {
+      align-self: center;
+      padding: 30px 25px 28px;
+      border: 1px solid rgba(232,201,149,.42);
+      border-radius: 18px;
+      background: linear-gradient(150deg, rgba(19,37,51,.88), rgba(19,37,51,.58));
+      box-shadow: 0 20px 55px rgba(0,0,0,.15);
+      backdrop-filter: blur(12px);
+    }
+    .major-aside-label {
+      margin: 0 0 24px;
+      color: #e8c995;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .17em;
+    }
+    .major-aside-amount {
+      margin: 0;
+      color: #fff;
+      font-size: 31px;
+      font-weight: 750;
+      letter-spacing: -.06em;
+      white-space: nowrap;
+    }
+    .major-aside-amount small {
+      color: #e8c995;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .major-aside-line { height: 1px; margin: 22px 0 18px; background: rgba(255,255,255,.18); }
+    .major-aside-copy {
+      margin: 0;
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+    .major-aside-note {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.13);
+      color: rgba(255,255,255,.62);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+    .major-aside-note span { color: #e8c995; font-size: 13px; line-height: 1.2; }
+    .major-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 25px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      transition: color .2s ease, gap .2s ease;
+    }
+    .major-back:hover { gap: 14px; color: #f0d5a5; }
+    body.major-mode {
+      background: #f3f0e9;
+    }
+    body.major-mode .site-header {
+      background: #172b3c;
+      border-bottom-color: rgba(255,255,255,.12);
+    }
+    body.major-mode .brand { color: #fff; }
+    body.major-mode .header-label { color: rgba(255,255,255,.7); }
+    body.major-mode .hero { display: none; }
+    body.major-mode main { width: min(1160px, calc(100% - 40px)); }
+    body.major-mode #wChoice { display: none; }
+    body.major-mode #wForm {
+      margin-top: 0;
+      border-color: rgba(36,54,75,.12);
+      box-shadow: 0 18px 45px rgba(36,54,75,.09);
+    }
+    body.major-mode #wForm .section-kicker { color: #a47b3c; }
+    body.major-mode #wForm h2,
+    body.major-mode #wMajor h3 { color: #20364a; }
+    body.major-mode #wMajor .amount-preview {
+      background: #f2eee5;
+      border: 1px solid #e4d8c3;
+    }
+    body.major-mode #wMajor .amount-preview strong { color: #9a7134; }
+    body.major-mode #wMajor .choice input:checked + label {
+      border-color: #b28a4a;
+      background: #f8f1e4;
+      color: #785827;
+    }
+    body.major-mode #submitButton {
+      background: #24364b;
+      border-radius: 999px;
+      letter-spacing: .02em;
+    }
+    body.major-mode #submitButton:hover { background: #172b3c; }
+    @keyframes majorReveal {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 650px) {
       .site-header { padding: 14px 18px; }
       .header-label { display: none; }
@@ -565,7 +783,250 @@
       .field.full { grid-column: auto; }
       .amount-preview strong { font-size: 20px; }
       .amount-calculation .equation { flex-direction: column; }
+      .major-experience {
+        min-height: auto;
+        margin-top: 16px;
+        padding: 30px 22px 25px;
+        border-radius: 20px;
+      }
+      .major-experience.visible { grid-template-columns: 1fr; gap: 28px; }
+      .major-experience h2 { font-size: clamp(34px, 9vw, 46px); }
+      .major-experience .major-lead { margin-top: 18px; line-height: 1.85; }
+      .major-eyebrow { margin-bottom: 22px; font-size: 9px; }
+      .major-values { grid-template-columns: 1fr; gap: 8px; }
+      .major-value { padding: 13px 14px; }
+      .major-aside { padding: 23px 22px; }
+      .major-aside-amount { font-size: 28px; }
+      body.major-mode main { width: min(100% - 24px, 1160px); }
     }
+
+
+    /* Premium major-donor form: elevated visual treatment below the hero */
+    body.major-mode #wForm {
+      margin-top: 30px;
+      padding: clamp(22px, 4.2vw, 46px);
+      background: #fbfaf7;
+      border: 1px solid #e6dfd2;
+      border-radius: 28px;
+      box-shadow: 0 24px 70px rgba(29, 42, 52, .10);
+      position: relative;
+      overflow: hidden;
+    }
+    body.major-mode #wForm::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: linear-gradient(90deg, #8c6a36 0%, #d7bd8b 48%, #8c6a36 100%);
+    }
+    body.major-mode #wForm .section-heading {
+      margin-bottom: 28px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #e7e0d5;
+    }
+    body.major-mode #wForm .section-kicker {
+      color: #98713a;
+      font-size: 10px;
+      letter-spacing: .2em;
+    }
+    body.major-mode #wForm #wTitle {
+      font-size: clamp(25px, 3vw, 34px);
+      letter-spacing: -.055em;
+      color: #1e3445;
+    }
+    body.major-mode #wForm #wDescription {
+      max-width: 650px;
+      margin-top: 12px;
+      color: #77766f;
+      line-height: 1.9;
+    }
+    body.major-mode #donationForm > .form-block {
+      margin-top: 18px;
+      padding: 27px clamp(17px, 3vw, 30px);
+      border: 1px solid #e8e1d5;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(34, 48, 58, .035);
+    }
+    body.major-mode #donationForm > .form-block h3 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 21px;
+      color: #20364a;
+      font-size: 19px;
+      letter-spacing: -.04em;
+    }
+    body.major-mode #donationForm > .form-block h3::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      flex: 0 0 4px;
+      border-radius: 5px;
+      background: #b28a4a;
+    }
+    body.major-mode #wMajor {
+      margin-top: 0 !important;
+      padding: 29px clamp(17px, 3vw, 30px) !important;
+      border: 1px solid #d9c7a8 !important;
+      border-radius: 22px !important;
+      background: linear-gradient(145deg, #fffdf8 0%, #f7f1e6 100%) !important;
+      box-shadow: 0 12px 32px rgba(90, 68, 35, .07) !important;
+      position: relative;
+    }
+    body.major-mode #wMajor h3 {
+      font-size: 22px !important;
+      margin-bottom: 8px !important;
+    }
+    body.major-mode #wMajor h3::before { height: 27px !important; }
+    body.major-mode #wMajor h3::after {
+      content: "MONTHLY COMMITMENT";
+      display: block;
+      margin-left: auto;
+      color: #a18456;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      white-space: nowrap;
+    }
+    body.major-mode #wMajor .field-label {
+      margin-top: 22px;
+      color: #4a4a43;
+    }
+    body.major-mode #wMajor .choice label {
+      min-height: 62px;
+      border-color: #e1d7c6;
+      border-radius: 13px;
+      background: rgba(255,255,255,.82);
+      transition: border-color .2s, background .2s, transform .2s, box-shadow .2s;
+    }
+    body.major-mode #wMajor .choice label:hover {
+      border-color: #bda16e;
+      transform: translateY(-1px);
+    }
+    body.major-mode #wMajor .choice input:checked + label {
+      border: 1.5px solid #a98243;
+      background: #f2e7d2;
+      color: #654b25;
+      box-shadow: inset 0 0 0 1px rgba(169, 130, 67, .12);
+    }
+    body.major-mode #wMajor .amount-preview {
+      margin-top: 22px;
+      padding: 20px 22px;
+      border: 1px solid #dfcfb1;
+      border-radius: 15px;
+      background: #243849;
+    }
+    body.major-mode #wMajor .amount-preview span {
+      color: rgba(255,255,255,.75);
+      font-size: 13px;
+    }
+    body.major-mode #wMajor .amount-preview strong {
+      color: #f0d6a5;
+      font-size: clamp(23px, 3vw, 29px);
+      letter-spacing: -.04em;
+    }
+    body.major-mode #applicantInfo,
+    body.major-mode #taxInfo,
+    body.major-mode #privacyInfo {
+      position: relative;
+    }
+    body.major-mode #applicantInfo h3::after {
+      content: "YOUR DETAILS";
+      margin-left: auto;
+      color: #a18456;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+    body.major-mode #taxInfo h3::after {
+      content: "OPTIONAL";
+      margin-left: auto;
+      color: #9b8b70;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    body.major-mode #privacyInfo h3::after {
+      content: "CONSENT";
+      margin-left: auto;
+      color: #9b8b70;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    body.major-mode .field label,
+    body.major-mode .field-label {
+      color: #39434a;
+      font-size: 13px;
+      letter-spacing: -.01em;
+    }
+    body.major-mode .field input,
+    body.major-mode .field select,
+    body.major-mode .field textarea {
+      min-height: 51px;
+      border-color: #dedbd4;
+      border-radius: 12px;
+      background: #fdfcf9;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    body.major-mode .field input:focus,
+    body.major-mode .field select:focus,
+    body.major-mode .field textarea:focus {
+      outline: none;
+      border-color: #b28a4a;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(178, 138, 74, .12);
+    }
+    body.major-mode .field textarea { min-height: 120px; }
+    body.major-mode .preview-card {
+      padding: 20px 22px;
+      border-color: #e3d8c5;
+      border-radius: 15px;
+      background: #f8f5ef;
+    }
+    body.major-mode .preview-card h4 { color: #8a6835; }
+    body.major-mode .preview-line { border-bottom-color: #e8e0d4; }
+    body.major-mode .consent-box {
+      border-color: #e4dccf;
+      border-radius: 14px;
+      background: #f8f6f1;
+    }
+    body.major-mode .submit-row {
+      margin-top: 26px;
+      padding: 24px 0 0;
+      border-top: 1px solid #e4dccf;
+    }
+    body.major-mode #submitButton {
+      min-height: 60px;
+      padding: 16px 28px;
+      background: linear-gradient(110deg, #20364a, #314c60);
+      border: 1px solid #b18b4e;
+      border-radius: 14px;
+      box-shadow: 0 10px 22px rgba(32, 54, 74, .16);
+      font-size: 15px;
+      font-weight: 800;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    body.major-mode #submitButton:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(110deg, #172b3c, #294257);
+      box-shadow: 0 13px 27px rgba(32, 54, 74, .2);
+    }
+    body.major-mode .help { color: #817b70; line-height: 1.7; }
+    @media (max-width: 650px) {
+      body.major-mode #wForm { margin-top: 18px; padding: 25px 15px; border-radius: 22px; }
+      body.major-mode #donationForm > .form-block { padding: 22px 15px; border-radius: 17px; }
+      body.major-mode #wMajor { padding: 23px 15px !important; }
+      body.major-mode #wMajor h3::after { font-size: 7px; letter-spacing: .08em; }
+      body.major-mode #applicantInfo h3::after,
+      body.major-mode #taxInfo h3::after,
+      body.major-mode #privacyInfo h3::after { font-size: 7px; letter-spacing: .08em; }
+      body.major-mode #wMajor .amount-preview { align-items: flex-start; flex-direction: column; gap: 7px; }
+      body.major-mode #submitButton { width: 100%; }
+    }
+
   </style>
 </head>
 
@@ -590,6 +1051,41 @@
         여러분의 꾸준한 참여가 오늘의 활동을 이어가고 내일의 변화를 준비하는 힘이 됩니다.
       </p>
       <div class="hero-note">함께할 수 있는 방식으로 마음을 보태주세요</div>
+    </section>
+
+
+    <section class="major-experience" id="majorExperience" aria-labelledby="majorExperienceTitle">
+      <div class="major-copy">
+        <p class="major-eyebrow">MAEUL EONDEOK · PARTNERS IN TOMORROW</p>
+        <h2 id="majorExperienceTitle">마을의 내일을<br>함께 키우는 마음</h2>
+        <p class="major-lead">
+          이웃이 만나고, 서로 돌보며, 생태적인 삶을 함께 실천하는 마을언덕.
+          꾸준한 후원은 오늘의 활동을 지키고, 아직 시작되지 않은 내일의 변화를 준비하는 든든한 기반이 됩니다.
+        </p>
+        <div class="major-rule" aria-hidden="true"></div>
+        <div class="major-values">
+          <div class="major-value">
+            <strong>오늘을 지키는 힘</strong>
+            <span>마을의 일상과 활동이 꾸준히 이어지도록</span>
+          </div>
+          <div class="major-value">
+            <strong>내일을 준비하는 기반</strong>
+            <span>새로운 시도와 필요한 사업을 계획할 수 있도록</span>
+          </div>
+          <div class="major-value">
+            <strong>오래 함께하는 동행</strong>
+            <span>한 번의 마음을 넘어 지속 가능한 변화를 함께</span>
+          </div>
+        </div>
+        <button type="button" class="major-back" id="majorBackButton">← 다른 후원 방식도 살펴보기</button>
+      </div>
+      <aside class="major-aside" aria-label="고액 정기후원 안내">
+        <p class="major-aside-label">A COMMITMENT THAT GROWS</p>
+        <p class="major-aside-amount">월 10만원<small>부터</small></p>
+        <div class="major-aside-line"></div>
+        <p class="major-aside-copy">한 사람의 꾸준한 마음이 모여 마을의 가능성을 넓힙니다. 마을언덕의 집중 성장을 위한 정기후원에 함께해 주세요.</p>
+        <div class="major-aside-note"><span>✦</span><div>후원 금액은 신청 과정에서 선택할 수 있으며, 담당자가 내용을 확인한 뒤 안내드립니다.</div></div>
+      </aside>
     </section>
 
     <section class="section" id="wChoice">
@@ -874,7 +1370,7 @@
         </div>
 
         <!-- 신청자 정보 -->
-        <div class="form-block">
+        <div class="form-block" id="applicantInfo">
           <h3>신청자 정보</h3>
 
           <div class="field-grid">
@@ -922,7 +1418,7 @@
         </div>
 
         <!-- 기부금 영수증 정보 -->
-        <div class="form-block">
+        <div class="form-block" id="taxInfo">
           <h3>기부금 영수증 정보</h3>
           <p class="section-description">
             영수증 발급이 필요한 경우 발급 대상을 선택하고 해당 번호를 입력해 주세요.
@@ -969,7 +1465,7 @@
         </div>
 
         <!-- 개인정보 동의 -->
-        <div class="form-block">
+        <div class="form-block" id="privacyInfo">
           <h3>개인정보 수집 및 이용 동의</h3>
           <div class="consent-box">
             <p class="section-description" style="margin-top:0">
@@ -1084,8 +1580,8 @@
         button: '정기후원 신청하기'
       },
       major: {
-        title: '마을언덕의 내일을 위한 고액 정기후원',
-        description: '더 큰 변화를 위한 정기후원 금액을 선택해 주세요.',
+        title: '함께할 후원의 약속을 정해주세요',
+        description: '후원 금액과 신청자 정보를 남겨주시면 담당자가 확인 후 안내드립니다.',
         section: 'wMajor',
         button: '고액 정기후원 신청하기'
       },
@@ -1233,6 +1729,12 @@
       selectedKind = kind;
       document.getElementById('wKind').value = kind;
 
+      const isMajorExperience = kind === 'major';
+      document.body.classList.toggle('major-mode', isMajorExperience);
+      document.getElementById('majorExperience').classList.toggle('visible', isMajorExperience);
+      document.querySelector('.hero').hidden = isMajorExperience;
+      document.getElementById('wChoice').hidden = isMajorExperience;
+
       document.querySelectorAll('.tile').forEach(function(tile) {
         const active = tile.dataset.kind === kind;
         tile.classList.toggle('active', active);
@@ -1256,8 +1758,43 @@
       messageBox.textContent = '';
 
       updatePreviews();
-      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      if (isMajorExperience) {
+        document.getElementById('majorExperience').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
+
+    document.getElementById('majorBackButton').addEventListener('click', function() {
+      document.body.classList.remove('major-mode');
+      document.getElementById('majorExperience').classList.remove('visible');
+      document.querySelector('.hero').hidden = false;
+      document.getElementById('wChoice').hidden = false;
+
+      document.querySelectorAll('.tile').forEach(function(tile) {
+        tile.classList.remove('active');
+        tile.setAttribute('aria-pressed', 'false');
+      });
+
+      document.querySelectorAll('.form-section').forEach(function(section) {
+        section.classList.remove('visible');
+      });
+
+      formSection.classList.remove('visible');
+      selectedKind = '';
+      document.getElementById('wKind').value = '';
+      messageBox.className = 'form-message';
+      messageBox.textContent = '';
+
+      document.getElementById('wChoice').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
 
     document.querySelectorAll('.tile').forEach(function(tile) {
       tile.addEventListener('click', function() {
@@ -1550,6 +2087,10 @@
         });
 
         formSection.classList.remove('visible');
+        document.body.classList.remove('major-mode');
+        document.getElementById('majorExperience').classList.remove('visible');
+        document.querySelector('.hero').hidden = false;
+        document.getElementById('wChoice').hidden = false;
 
         document.getElementById('currentOtherWrap').hidden = true;
         document.getElementById('incOtherWrap').hidden = true;
