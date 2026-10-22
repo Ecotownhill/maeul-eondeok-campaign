@@ -16,39 +16,25 @@
       --muted: #6d747b;
       --line: #e7e1d8;
       --white: #fff;
-      --green: #477a65;
       --shadow: 0 12px 35px rgba(36, 54, 75, .08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       background: var(--cream);
       color: var(--ink);
-      font-family:
-        Pretendard, -apple-system, BlinkMacSystemFont,
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont,
         "Segoe UI", "Noto Sans KR", sans-serif;
       line-height: 1.65;
       word-break: keep-all;
     }
 
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
 
     button:focus-visible,
     input:focus-visible,
@@ -58,13 +44,9 @@
       outline-offset: 2px;
     }
 
-    a {
-      color: inherit;
-    }
-
     .site-header {
       padding: 20px 24px;
-      background: rgba(251, 248, 243, .94);
+      background: rgba(251, 248, 243, .96);
       border-bottom: 1px solid rgba(36, 54, 75, .08);
     }
 
@@ -104,40 +86,26 @@
     main {
       width: min(1080px, calc(100% - 40px));
       margin: 0 auto;
-      padding-bottom: 80px;
+      padding-bottom: 65px;
     }
 
+    /* 첫 화면: 실제 활동 사진을 배경으로 사용 */
     .hero {
       position: relative;
       overflow: hidden;
       margin: 34px 0 28px;
-      padding: clamp(32px, 7vw, 76px);
+      padding: clamp(38px, 7vw, 78px);
       border-radius: 28px;
-      background: var(--navy);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(25, 43, 59, .88) 0%,
+          rgba(25, 43, 59, .69) 55%,
+          rgba(25, 43, 59, .38) 100%
+        ),
+        url("달리고살리고.jpg") center 50% / cover no-repeat,
+        var(--navy);
       color: white;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      right: -75px;
-      bottom: -105px;
-      border: 1px solid rgba(255, 255, 255, .22);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 24px rgba(255,255,255,.035),
-        0 0 0 48px rgba(255,255,255,.025);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      margin: 0 0 15px;
-      color: #f3b4a7;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .14em;
     }
 
     .hero h1 {
@@ -152,9 +120,9 @@
     .hero p {
       position: relative;
       z-index: 1;
-      max-width: 570px;
+      max-width: 590px;
       margin: 22px 0 0;
-      color: rgba(255,255,255,.83);
+      color: rgba(255, 255, 255, .93);
       font-size: 16px;
     }
 
@@ -166,8 +134,9 @@
       gap: 8px;
       margin-top: 28px;
       padding: 9px 14px;
-      border: 1px solid rgba(255,255,255,.23);
+      border: 1px solid rgba(255, 255, 255, .5);
       border-radius: 999px;
+      background: rgba(20, 34, 47, .18);
       font-size: 12px;
     }
 
@@ -180,9 +149,7 @@
       box-shadow: var(--shadow);
     }
 
-    .section-heading {
-      margin-bottom: 24px;
-    }
+    .section-heading { margin-bottom: 24px; }
 
     .section-kicker {
       margin: 0 0 7px;
@@ -232,8 +199,8 @@
     }
 
     .tile.active {
-      border: 2px solid var(--coral);
       padding: 23px;
+      border: 2px solid var(--coral);
       background: #fff4f0;
     }
 
@@ -260,25 +227,8 @@
       font-size: 13px;
     }
 
-    .form-section {
-      display: none;
-    }
-
-    .form-section.visible {
-      display: block;
-      animation: appear .25s ease;
-    }
-
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(5px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    .form-section { display: none; }
+    .form-section.visible { display: block; }
 
     .form-block {
       padding-top: 22px;
@@ -304,14 +254,8 @@
       gap: 18px;
     }
 
-    .field {
-      min-width: 0;
-      margin-bottom: 17px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
+    .field { min-width: 0; margin-bottom: 17px; }
+    .field.full { grid-column: 1 / -1; }
 
     .field label,
     .field-label {
@@ -322,11 +266,8 @@
       font-weight: 750;
     }
 
-    .required {
-      color: #bd5949;
-    }
+    .required { color: #bd5949; }
 
-    .input,
     .field input,
     .field select,
     .field textarea {
@@ -340,10 +281,7 @@
       color: var(--ink);
     }
 
-    .field textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
+    .field textarea { min-height: 110px; resize: vertical; }
 
     .help {
       margin: 7px 0 0;
@@ -357,9 +295,7 @@
       gap: 10px;
     }
 
-    .choice {
-      position: relative;
-    }
+    .choice { position: relative; }
 
     .choice input {
       position: absolute;
@@ -384,14 +320,14 @@
     }
 
     .choice input:checked + label {
-      border: 2px solid var(--coral);
       padding: 11px;
+      border: 2px solid var(--coral);
       background: #fff4f0;
       color: #974b3d;
     }
 
     .choice input:focus-visible + label {
-      outline: 3px solid rgba(233,130,112,.45);
+      outline: 3px solid rgba(233, 130, 112, .45);
       outline-offset: 2px;
     }
 
@@ -406,23 +342,8 @@
       background: var(--cream);
     }
 
-    .amount-preview span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .amount-preview strong {
-      color: var(--navy);
-      font-size: 23px;
-    }
-
-    .notice {
-      padding: 15px 17px;
-      border-radius: 12px;
-      background: #f6f3ed;
-      color: #64645e;
-      font-size: 13px;
-    }
+    .amount-preview span { color: var(--muted); font-size: 13px; }
+    .amount-preview strong { color: var(--navy); font-size: 23px; }
 
     .consent-box {
       padding: 18px;
@@ -438,9 +359,7 @@
       font-size: 13px;
     }
 
-    .check-row + .check-row {
-      margin-top: 13px;
-    }
+    .check-row + .check-row { margin-top: 13px; }
 
     .check-row input {
       width: 18px;
@@ -456,9 +375,7 @@
       cursor: pointer;
     }
 
-    .submit-row {
-      margin-top: 25px;
-    }
+    .submit-row { margin-top: 25px; }
 
     .submit-button {
       width: 100%;
@@ -470,17 +387,10 @@
       color: white;
       font-weight: 800;
       font-size: 16px;
-      transition: background .2s;
     }
 
-    .submit-button:hover {
-      background: #d76f5e;
-    }
-
-    .submit-button:disabled {
-      cursor: wait;
-      opacity: .65;
-    }
+    .submit-button:hover { background: #d76f5e; }
+    .submit-button:disabled { cursor: wait; opacity: .65; }
 
     .form-message {
       display: none;
@@ -490,18 +400,82 @@
       font-size: 14px;
     }
 
-    .form-message.visible {
-      display: block;
+    .form-message.visible { display: block; }
+    .form-message.error { background: #fff0ed; color: #a13f31; }
+    .form-message.success { background: #edf6f0; color: #32664e; }
+
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      gap: 12px;
     }
 
-    .form-message.error {
-      background: #fff0ed;
-      color: #a13f31;
+    .faq-item {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fffdfa;
     }
 
-    .form-message.success {
-      background: #edf6f0;
-      color: #32664e;
+    .faq-item summary {
+      position: relative;
+      padding: 18px 48px 18px 18px;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 750;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 18px;
+      transform: translateY(-50%);
+      color: var(--coral);
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .faq-item[open] summary::after { content: "−"; }
+
+    .faq-answer {
+      padding: 0 18px 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .faq-answer p { margin: 0; }
+
+    .closing-photo {
+      position: relative;
+      overflow: hidden;
+      margin-top: 26px;
+      padding: clamp(30px, 6vw, 60px);
+      border-radius: 24px;
+      background:
+        linear-gradient(rgba(28, 45, 59, .70), rgba(28, 45, 59, .76)),
+        url("달리고살리고.jpg") center 55% / cover no-repeat,
+        var(--navy);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .closing-photo .section-kicker { color: #ffd0c5; }
+
+    .closing-photo h2 {
+      color: white;
+      max-width: 700px;
+    }
+
+    .closing-photo p {
+      max-width: 680px;
+      margin: 13px 0 0;
+      color: rgba(255,255,255,.9);
+      font-size: 14px;
     }
 
     .footer {
@@ -511,55 +485,26 @@
       font-size: 12px;
     }
 
-    .footer strong {
-      color: var(--navy);
-    }
+    .footer strong { color: var(--navy); }
 
     @media (max-width: 650px) {
-      .site-header {
-        padding: 14px 18px;
-      }
-
-      .header-label {
-        display: none;
-      }
-
-      main {
-        width: min(100% - 24px, 1080px);
-      }
+      .site-header { padding: 14px 18px; }
+      .header-label { display: none; }
+      main { width: min(100% - 24px, 1080px); }
 
       .hero {
         margin-top: 18px;
         padding: 32px 24px;
         border-radius: 20px;
+        background-position: center, center;
       }
 
-      .hero p {
-        font-size: 14px;
-      }
-
-      .section {
-        padding: 23px 18px;
-        border-radius: 18px;
-      }
-
-      .tiles,
-      .field-grid,
-      .choices {
-        grid-template-columns: 1fr;
-      }
-
-      .tile {
-        min-height: 145px;
-      }
-
-      .field.full {
-        grid-column: auto;
-      }
-
-      .amount-preview strong {
-        font-size: 20px;
-      }
+      .hero p { font-size: 14px; }
+      .section { padding: 23px 18px; border-radius: 18px; }
+      .tiles, .field-grid, .choices { grid-template-columns: 1fr; }
+      .tile { min-height: 145px; }
+      .field.full { grid-column: auto; }
+      .amount-preview strong { font-size: 20px; }
     }
   </style>
 </head>
@@ -568,11 +513,9 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="마을언덕 캠페인 첫 화면">
-        <img
-          src="maeul-logo.png"
-          alt="마을언덕 사회적협동조합 로고"
-          onerror="this.style.display='none'"
-        >
+        <img src="maeul-logo.png"
+             alt="마을언덕 사회적협동조합 로고"
+             onerror="this.style.display='none'">
         <span>마을언덕 사회적협동조합</span>
       </a>
       <span class="header-label">함께 만드는 지속 가능한 마을</span>
@@ -580,8 +523,8 @@
   </header>
 
   <main id="top">
+    <!-- 첫 화면: 영문 캠페인 문구를 제거하고 실제 활동 사진을 배경으로 사용 -->
     <section class="hero">
-      <p class="eyebrow">MAEUL EONDEOK · REGULAR GIVING</p>
       <h1>일상을 지키는 마음,<br>내일을 여는 약속</h1>
       <p>
         이웃이 만나고, 서로 돌보며, 생태적인 삶을 함께 실천하는 마을언덕.
@@ -590,7 +533,6 @@
       <div class="hero-note">함께할 수 있는 방식으로 마음을 보태주세요</div>
     </section>
 
-    <!-- 후원 방식 선택: 이 제목은 페이지에 한 번만 존재합니다. -->
     <section class="section" id="wChoice">
       <div class="section-heading">
         <p class="section-kicker">TOGETHER WITH YOU</p>
@@ -601,25 +543,25 @@
       </div>
 
       <div class="tiles">
-        <button type="button" class="tile" id="tileInc" data-kind="increase" aria-pressed="false">
+        <button type="button" class="tile" data-kind="increase" aria-pressed="false">
           <span class="symbol">↗</span>
           <strong>기존 후원금 증액</strong>
           <span>현재의 정기후원에 마음을 조금 더 보태주세요.</span>
         </button>
 
-        <button type="button" class="tile" id="tileNew" data-kind="new" aria-pressed="false">
+        <button type="button" class="tile" data-kind="new" aria-pressed="false">
           <span class="symbol">＋</span>
           <strong>정기후원 시작 (5만원 이하)</strong>
           <span>매월 5만원 이하의 정기후원으로 꾸준히 응원해 주세요.</span>
         </button>
 
-        <button type="button" class="tile" id="tileMajor" data-kind="major" aria-pressed="false">
+        <button type="button" class="tile" data-kind="major" aria-pressed="false">
           <span class="symbol">✳</span>
           <strong>마을언덕의 집중성장을 위한 고액 정기후원</strong>
           <span>더 큰 변화를 위한 든든한 정기후원을 약속해 주세요.</span>
         </button>
 
-        <button type="button" class="tile" id="tilePledge" data-kind="pledge" aria-pressed="false">
+        <button type="button" class="tile" data-kind="pledge" aria-pressed="false">
           <span class="symbol">♡</span>
           <strong>약정 후원문의</strong>
           <span>기간과 금액을 약속하며 중장기 활동을 함께 준비해요.</span>
@@ -645,44 +587,25 @@
 
           <div class="field">
             <label for="wCurrentMonthly">현재 월 후원금 (선택)</label>
-            <input
-              id="wCurrentMonthly"
-              name="currentMonthly"
-              type="number"
-              min="0"
-              step="1000"
-              inputmode="numeric"
-              placeholder="예: 10000"
-            >
+            <input id="wCurrentMonthly" name="currentMonthly"
+                   type="number" min="0" step="1000"
+                   inputmode="numeric" placeholder="예: 10000">
             <p class="help">현재 납부하고 있는 월 후원금을 알고 계신 경우 입력해 주세요.</p>
           </div>
 
           <div class="field">
             <span class="field-label">매월 추가할 금액 <span class="required">*</span></span>
             <div class="choices">
-              <div class="choice">
-                <input type="radio" id="inc5000" name="increaseAmount" value="5000">
-                <label for="inc5000">5,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="inc10000" name="increaseAmount" value="10000">
-                <label for="inc10000">10,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="inc15000" name="increaseAmount" value="15000">
-                <label for="inc15000">15,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="inc20000" name="increaseAmount" value="20000">
-                <label for="inc20000">20,000원</label>
-              </div>
+              <div class="choice"><input type="radio" id="inc5000" name="increaseAmount" value="5000"><label for="inc5000">5,000원</label></div>
+              <div class="choice"><input type="radio" id="inc10000" name="increaseAmount" value="10000"><label for="inc10000">10,000원</label></div>
+              <div class="choice"><input type="radio" id="inc15000" name="increaseAmount" value="15000"><label for="inc15000">15,000원</label></div>
+              <div class="choice"><input type="radio" id="inc20000" name="increaseAmount" value="20000"><label for="inc20000">20,000원</label></div>
             </div>
             <p class="help">증액 신청의 최소 금액은 월 5,000원입니다.</p>
           </div>
 
           <div class="amount-preview">
-            <span>매월 추가할 금액</span>
-            <strong id="incPreview">선택 전</strong>
+            <span>매월 추가할 금액</span><strong id="incPreview">선택 전</strong>
           </div>
         </div>
 
@@ -693,50 +616,24 @@
           <div class="field">
             <span class="field-label">매월 후원할 금액 <span class="required">*</span></span>
             <div class="choices">
-              <div class="choice">
-                <input type="radio" id="new5000" name="newAmount" value="5000">
-                <label for="new5000">5,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="new10000" name="newAmount" value="10000">
-                <label for="new10000">10,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="new20000" name="newAmount" value="20000">
-                <label for="new20000">20,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="new30000" name="newAmount" value="30000">
-                <label for="new30000">30,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="new50000" name="newAmount" value="50000">
-                <label for="new50000">50,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="newOther" name="newAmount" value="other">
-                <label for="newOther">직접 입력</label>
-              </div>
+              <div class="choice"><input type="radio" id="new5000" name="newAmount" value="5000"><label for="new5000">5,000원</label></div>
+              <div class="choice"><input type="radio" id="new10000" name="newAmount" value="10000"><label for="new10000">10,000원</label></div>
+              <div class="choice"><input type="radio" id="new20000" name="newAmount" value="20000"><label for="new20000">20,000원</label></div>
+              <div class="choice"><input type="radio" id="new30000" name="newAmount" value="30000"><label for="new30000">30,000원</label></div>
+              <div class="choice"><input type="radio" id="new50000" name="newAmount" value="50000"><label for="new50000">50,000원</label></div>
+              <div class="choice"><input type="radio" id="newOther" name="newAmount" value="other"><label for="newOther">직접 입력</label></div>
             </div>
           </div>
 
           <div class="field" id="newOtherWrap" hidden>
             <label for="newOtherAmount">희망 월 후원금 (원) <span class="required">*</span></label>
-            <input
-              id="newOtherAmount"
-              type="number"
-              min="1000"
-              max="50000"
-              step="1000"
-              inputmode="numeric"
-              placeholder="예: 15000"
-            >
+            <input id="newOtherAmount" type="number" min="1000" max="50000"
+                   step="1000" inputmode="numeric" placeholder="예: 15000">
             <p class="help">1,000원 이상 50,000원 이하로 입력해 주세요.</p>
           </div>
 
           <div class="amount-preview">
-            <span>매월 후원할 금액</span>
-            <strong id="newPreview">선택 전</strong>
+            <span>매월 후원할 금액</span><strong id="newPreview">선택 전</strong>
           </div>
         </div>
 
@@ -747,58 +644,47 @@
           <div class="field">
             <span class="field-label">매월 후원할 금액 <span class="required">*</span></span>
             <div class="choices">
-              <div class="choice">
-                <input type="radio" id="major100000" name="majorAmount" value="100000">
-                <label for="major100000">100,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="major200000" name="majorAmount" value="200000">
-                <label for="major200000">200,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="major300000" name="majorAmount" value="300000">
-                <label for="major300000">300,000원</label>
-              </div>
-              <div class="choice">
-                <input type="radio" id="majorOther" name="majorAmount" value="other">
-                <label for="majorOther">직접 입력</label>
-              </div>
+              <div class="choice"><input type="radio" id="major100000" name="majorAmount" value="100000"><label for="major100000">100,000원</label></div>
+              <div class="choice"><input type="radio" id="major200000" name="majorAmount" value="200000"><label for="major200000">200,000원</label></div>
+              <div class="choice"><input type="radio" id="major300000" name="majorAmount" value="300000"><label for="major300000">300,000원</label></div>
+              <div class="choice"><input type="radio" id="majorOther" name="majorAmount" value="other"><label for="majorOther">직접 입력</label></div>
             </div>
           </div>
 
           <div class="field" id="majorOtherWrap" hidden>
             <label for="majorOtherAmount">희망 월 후원금 (원) <span class="required">*</span></label>
-            <input
-              id="majorOtherAmount"
-              type="number"
-              min="1000"
-              step="1000"
-              inputmode="numeric"
-              placeholder="예: 500000"
-            >
+            <input id="majorOtherAmount" type="number" min="1000" step="1000"
+                   inputmode="numeric" placeholder="예: 500000">
           </div>
 
           <div class="amount-preview">
-            <span>매월 후원할 금액</span>
-            <strong id="majorPreview">선택 전</strong>
+            <span>매월 후원할 금액</span><strong id="majorPreview">선택 전</strong>
           </div>
         </div>
 
-        <!-- 약정후원 -->
+        <!-- 약정후원: 금액 선택지 추가 -->
         <div class="form-block form-section" id="wPledge">
           <h3>약정 후원 내용</h3>
 
           <div class="field">
-            <label for="wPledgeAmount">희망 후원금 (원) <span class="required">*</span></label>
-            <input
-              id="wPledgeAmount"
-              type="number"
-              min="1000"
-              step="1000"
-              inputmode="numeric"
-              placeholder="예: 100000"
-            >
-            <p class="help">약정하실 총금액 또는 희망 금액을 입력해 주세요. 담당자가 확인 후 구체적인 내용을 안내드립니다.</p>
+            <span class="field-label">희망 약정 후원금 <span class="required">*</span></span>
+            <div class="choices">
+              <div class="choice"><input type="radio" id="pledge200000" name="pledgeAmount" value="200000"><label for="pledge200000">200,000원</label></div>
+              <div class="choice"><input type="radio" id="pledge300000" name="pledgeAmount" value="300000"><label for="pledge300000">300,000원</label></div>
+              <div class="choice"><input type="radio" id="pledge500000" name="pledgeAmount" value="500000"><label for="pledge500000">500,000원</label></div>
+              <div class="choice"><input type="radio" id="pledgeOther" name="pledgeAmount" value="other"><label for="pledgeOther">직접 입력</label></div>
+            </div>
+            <p class="help">희망하는 약정 금액을 선택해 주세요. 구체적인 후원 방식은 담당자가 확인 후 안내드립니다.</p>
+          </div>
+
+          <div class="field" id="pledgeOtherWrap" hidden>
+            <label for="pledgeOtherAmount">직접 입력할 금액 (원) <span class="required">*</span></label>
+            <input id="pledgeOtherAmount" type="number" min="1000" step="1000"
+                   inputmode="numeric" placeholder="예: 1000000">
+          </div>
+
+          <div class="amount-preview">
+            <span>희망 약정 후원금</span><strong id="pledgePreview">선택 전</strong>
           </div>
 
           <div class="field">
@@ -816,10 +702,7 @@
 
           <div class="field">
             <label for="wPledgeDetail">약정 관련 상세 내용</label>
-            <textarea
-              id="wPledgeDetail"
-              placeholder="희망하는 후원 방식이나 전달하고 싶은 내용을 적어 주세요."
-            ></textarea>
+            <textarea id="wPledgeDetail" placeholder="희망하는 후원 방식이나 전달하고 싶은 내용을 적어 주세요."></textarea>
           </div>
         </div>
 
@@ -835,34 +718,19 @@
 
             <div class="field">
               <label for="wPhone">연락처 <span class="required">*</span></label>
-              <input
-                id="wPhone"
-                name="phone"
-                type="tel"
-                autocomplete="tel"
-                required
-                placeholder="예: 010-1234-5678"
-              >
+              <input id="wPhone" name="phone" type="tel" autocomplete="tel"
+                     required placeholder="예: 010-1234-5678">
             </div>
 
             <div class="field full">
               <label for="wEmail">이메일 (선택)</label>
-              <input
-                id="wEmail"
-                name="email"
-                type="email"
-                autocomplete="email"
-                placeholder="예: example@email.com"
-              >
+              <input id="wEmail" name="email" type="email" autocomplete="email"
+                     placeholder="예: example@email.com">
             </div>
 
             <div class="field full">
               <label for="wNotes">문의 및 전달 사항 (선택)</label>
-              <textarea
-                id="wNotes"
-                name="notes"
-                placeholder="추가로 전달하고 싶은 내용이 있다면 입력해 주세요."
-              ></textarea>
+              <textarea id="wNotes" name="notes" placeholder="추가로 전달하고 싶은 내용이 있다면 입력해 주세요."></textarea>
             </div>
           </div>
         </div>
@@ -871,30 +739,25 @@
         <div class="form-block">
           <h3>기부금 영수증 정보</h3>
           <p class="section-description">
-            영수증 발급이 필요한 경우에만 입력해 주세요.
+            영수증 발급이 필요한 경우 발급 대상을 선택하고 해당 번호를 입력해 주세요.
           </p>
 
           <div class="field">
             <label for="wTaxType">영수증 발급 대상</label>
             <select id="wTaxType" name="taxType">
               <option value="">선택 안 함</option>
-              <option value="개인">개인</option>
-              <option value="사업자">사업자</option>
+              <option value="개인(주민등록번호)">개인(주민등록번호)</option>
+              <option value="사업자(사업자등록번호)">사업자(사업자등록번호)</option>
             </select>
           </div>
 
           <div class="field" id="taxNumberWrap" hidden>
-            <label for="wTaxNumber" id="taxNumberLabel">식별번호</label>
-            <input
-              id="wTaxNumber"
-              name="taxNumber"
-              type="text"
-              autocomplete="off"
-              placeholder="발급에 필요한 번호를 입력해 주세요"
-            >
-            <p class="help">
-              민감한 개인정보이므로 영수증 발급이 필요한 경우에만 입력해 주세요.
-              입력 전 기관의 개인정보 처리 및 보관 방침을 확인해 주세요.
+            <label for="wTaxNumber" id="taxNumberLabel">발급 번호</label>
+            <input id="wTaxNumber" name="taxNumber" type="text"
+                   inputmode="numeric" autocomplete="off"
+                   placeholder="번호를 입력해 주세요">
+            <p class="help" id="taxNumberHelp">
+              번호를 입력할 때 하이픈(-)은 있어도 됩니다.
             </p>
           </div>
 
@@ -904,6 +767,7 @@
                 <input type="checkbox" id="wTaxConsent" name="taxConsent">
                 <label for="wTaxConsent">
                   기부금 영수증 발급을 위한 정보 수집 및 이용에 동의합니다.
+                  <span class="required">(필수)</span>
                 </label>
               </div>
             </div>
@@ -913,39 +777,89 @@
         <!-- 개인정보 동의 -->
         <div class="form-block">
           <h3>개인정보 수집 및 이용 동의</h3>
-
           <div class="consent-box">
             <p class="section-description" style="margin-top:0">
-              신청 접수와 후원 관련 안내를 위해 이름과 연락처, 신청 내용 등을 수집·이용합니다.
-              수집 목적과 보유 기간 등 세부 내용은 실제 운영 기관의 개인정보 처리 방침에 맞게 확인해 주세요.
+              신청 접수와 후원 관련 안내를 위해 이름, 연락처 및 신청 내용 등을 수집·이용합니다.
+              실제 운영 기관의 개인정보 처리 방침에 맞는 세부 내용과 보유 기간을 확인해 주세요.
             </p>
-
             <div class="check-row">
               <input type="checkbox" id="wConsent" name="consent" required>
               <label for="wConsent">
-                개인정보 수집 및 이용에 동의합니다. <span class="required">(필수)</span>
+                개인정보 수집 및 이용에 동의합니다.
+                <span class="required">(필수)</span>
               </label>
             </div>
           </div>
         </div>
 
         <div class="submit-row">
-          <button class="submit-button" id="submitButton" type="submit">
-            후원 신청하기
-          </button>
+          <button class="submit-button" id="submitButton" type="submit">후원 신청하기</button>
           <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
         </div>
       </form>
     </section>
 
-    <section class="section">
+    <!-- FAQ: 페이지 하단에 추가 -->
+    <section class="section" id="faq">
       <div class="section-heading">
-        <p class="section-kicker">A VILLAGE THAT GROWS TOGETHER</p>
-        <h2>여러분의 꾸준한 참여가<br>우리가 바라는 마을을 만들어갑니다.</h2>
-        <p class="section-description">
-          마을언덕사회적협동조합과 함께 일상을 지키고 내일의 변화를 준비해 주세요.
-        </p>
+        <p class="section-kicker">FAQ</p>
+        <h2>자주 묻는 질문</h2>
+        <p class="section-description">후원 신청 전에 궁금한 점을 확인해 주세요.</p>
       </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>기존 후원금은 어떻게 증액할 수 있나요?</summary>
+          <div class="faq-answer">
+            <p>‘기존 후원금 증액’을 선택하고 매월 추가할 금액을 골라 신청해 주세요. 증액 신청의 최소 금액은 월 5,000원입니다. 신청 내용 확인 후 담당자가 후원 변경 절차를 안내드립니다.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>처음 후원하려면 어떻게 해야 하나요?</summary>
+          <div class="faq-answer">
+            <p>‘정기후원 시작’을 선택한 뒤 매월 후원할 금액과 신청자 정보를 입력해 주세요. 이 페이지는 신청 내용을 접수하는 페이지이며, 실제 정기결제 등록은 별도의 안내나 절차가 필요할 수 있습니다.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>고액 정기후원과 약정후원은 무엇이 다른가요?</summary>
+          <div class="faq-answer">
+            <p>고액 정기후원은 매월 일정한 금액으로 마을언덕의 활동을 지속적으로 지원하는 방식입니다. 약정후원은 희망 금액과 기간을 정해 중장기 활동을 함께 준비하는 방식으로, 구체적인 조건은 담당자와 협의할 수 있습니다.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>약정후원 기간이나 금액을 상담할 수 있나요?</summary>
+          <div class="faq-answer">
+            <p>네. 약정후원 신청에서 금액과 기간을 선택하고 전달 사항을 적어 주세요. 제시된 선택지 외의 금액이나 기간은 담당자와 협의할 수 있습니다.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>기부금 영수증은 어떻게 신청하나요?</summary>
+          <div class="faq-answer">
+            <p>기부금 영수증 발급이 필요하면 발급 대상을 선택하고 해당 번호를 입력한 뒤 정보 수집 및 이용에 동의해 주세요. 개인은 주민등록번호 13자리, 사업자는 사업자등록번호 10자리가 필요합니다. 실제 발급 가능 여부와 발급 시기는 담당자에게 확인해 주세요.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>신청 후에는 어떻게 진행되나요?</summary>
+          <div class="faq-answer">
+            <p>신청 내용이 접수되면 담당자가 내용을 확인하고 필요한 경우 연락드립니다. 신청 전송이 완료되었다는 화면만으로 실제 접수 여부가 확정되는 것은 아니므로, 문제가 있거나 확인이 필요하면 마을언덕에 문의해 주세요.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 마지막 활동 사진 영역 -->
+    <section class="closing-photo">
+      <p class="section-kicker">함께 만드는 마을의 내일</p>
+      <h2>여러분의 꾸준한 참여가<br>우리가 바라는 마을을 만들어갑니다.</h2>
+      <p>
+        이웃이 만나고, 서로 돌보며, 생태적인 삶을 함께 실천하는 마을언덕.
+        여러분의 마음이 오늘의 활동을 이어가고 내일의 변화를 준비하는 힘이 됩니다.
+      </p>
     </section>
   </main>
 
@@ -955,10 +869,6 @@
   </footer>
 
   <script>
-    /*
-      기존 Google Apps Script 웹 앱 주소를 사용합니다.
-      신청 접수 기능은 실제 배포된 웹 앱과 연결되어 있어야 합니다.
-    */
     const SCRIPT_URL =
       'https://script.google.com/macros/s/AKfycbyIJKIMAgAeT9ip2MaJg6V9Lh_HCp0Aie0PI21sHhsh7Qqeq6i6IIWvg46iUXFFCAVP/exec';
 
@@ -1014,22 +924,23 @@
 
       if (selectedKind === 'new') {
         const value = selectedRadio('newAmount');
-        if (value === 'other') {
-          return Number(document.getElementById('newOtherAmount').value || 0);
-        }
-        return Number(value || 0);
+        return value === 'other'
+          ? Number(document.getElementById('newOtherAmount').value || 0)
+          : Number(value || 0);
       }
 
       if (selectedKind === 'major') {
         const value = selectedRadio('majorAmount');
-        if (value === 'other') {
-          return Number(document.getElementById('majorOtherAmount').value || 0);
-        }
-        return Number(value || 0);
+        return value === 'other'
+          ? Number(document.getElementById('majorOtherAmount').value || 0)
+          : Number(value || 0);
       }
 
       if (selectedKind === 'pledge') {
-        return Number(document.getElementById('wPledgeAmount').value || 0);
+        const value = selectedRadio('pledgeAmount');
+        return value === 'other'
+          ? Number(document.getElementById('pledgeOtherAmount').value || 0)
+          : Number(value || 0);
       }
 
       return 0;
@@ -1039,25 +950,32 @@
       document.getElementById('incPreview').textContent =
         won(Number(selectedRadio('increaseAmount') || 0));
 
-      let newValue = selectedRadio('newAmount');
+      const newValue = selectedRadio('newAmount');
       document.getElementById('newOtherWrap').hidden = newValue !== 'other';
       document.getElementById('newOtherAmount').required =
         selectedKind === 'new' && newValue === 'other';
-
       document.getElementById('newPreview').textContent =
         newValue === 'other'
           ? won(document.getElementById('newOtherAmount').value)
           : won(Number(newValue || 0));
 
-      let majorValue = selectedRadio('majorAmount');
+      const majorValue = selectedRadio('majorAmount');
       document.getElementById('majorOtherWrap').hidden = majorValue !== 'other';
       document.getElementById('majorOtherAmount').required =
         selectedKind === 'major' && majorValue === 'other';
-
       document.getElementById('majorPreview').textContent =
         majorValue === 'other'
           ? won(document.getElementById('majorOtherAmount').value)
           : won(Number(majorValue || 0));
+
+      const pledgeValue = selectedRadio('pledgeAmount');
+      document.getElementById('pledgeOtherWrap').hidden = pledgeValue !== 'other';
+      document.getElementById('pledgeOtherAmount').required =
+        selectedKind === 'pledge' && pledgeValue === 'other';
+      document.getElementById('pledgePreview').textContent =
+        pledgeValue === 'other'
+          ? won(document.getElementById('pledgeOtherAmount').value)
+          : won(Number(pledgeValue || 0));
     }
 
     function chooseKind(kind) {
@@ -1097,7 +1015,7 @@
     });
 
     document.querySelectorAll(
-      'input[name="increaseAmount"], input[name="newAmount"], input[name="majorAmount"]'
+      'input[name="increaseAmount"], input[name="newAmount"], input[name="majorAmount"], input[name="pledgeAmount"]'
     ).forEach(function(input) {
       input.addEventListener('change', updatePreviews);
     });
@@ -1105,29 +1023,44 @@
     [
       'newOtherAmount',
       'majorOtherAmount',
-      'wPledgeAmount'
+      'pledgeOtherAmount'
     ].forEach(function(id) {
       document.getElementById(id).addEventListener('input', updatePreviews);
     });
 
+    /* 기부금 영수증 발급 대상에 따라 번호 입력 안내를 변경 */
     document.getElementById('wTaxType').addEventListener('change', function() {
       const type = this.value;
       const show = type !== '';
 
       document.getElementById('taxNumberWrap').hidden = !show;
       document.getElementById('taxConsentWrap').hidden = !show;
-      document.getElementById('wTaxNumber').required = false;
+
+      const numberInput = document.getElementById('wTaxNumber');
+      numberInput.value = '';
+      numberInput.required = show;
+      document.getElementById('wTaxConsent').checked = false;
       document.getElementById('wTaxConsent').required = show;
 
-      document.getElementById('taxNumberLabel').textContent =
-        type === '사업자'
-          ? '사업자등록번호 (선택)'
-          : '영수증 발급용 식별번호 (선택)';
-
-      document.getElementById('wTaxNumber').placeholder =
-        type === '사업자'
-          ? '예: 123-45-67890'
-          : '발급에 필요한 번호를 입력해 주세요';
+      if (type === '개인(주민등록번호)') {
+        document.getElementById('taxNumberLabel').textContent =
+          '주민등록번호 13자리 *';
+        numberInput.placeholder = '예: 9001011234567';
+        numberInput.maxLength = 14;
+        document.getElementById('taxNumberHelp').textContent =
+          '주민등록번호 13자리를 입력해 주세요. 하이픈(-)은 입력해도 됩니다.';
+      } else if (type === '사업자(사업자등록번호)') {
+        document.getElementById('taxNumberLabel').textContent =
+          '사업자등록번호 10자리 *';
+        numberInput.placeholder = '예: 1234567890';
+        numberInput.maxLength = 12;
+        document.getElementById('taxNumberHelp').textContent =
+          '사업자등록번호 10자리를 입력해 주세요. 하이픈(-)은 입력해도 됩니다.';
+      } else {
+        document.getElementById('taxNumberLabel').textContent = '발급 번호';
+        numberInput.placeholder = '번호를 입력해 주세요';
+        numberInput.removeAttribute('maxlength');
+      }
     });
 
     function showMessage(text, type) {
@@ -1137,7 +1070,7 @@
 
     function validateDonation() {
       if (!selectedKind) {
-        showMessage('먼저 함께할 후원 방식을 선택해 주세요.', 'error');
+        alert('먼저 함께할 후원 방식을 선택해 주세요.');
         document.getElementById('wChoice').scrollIntoView({
           behavior: 'smooth',
           block: 'start'
@@ -1146,40 +1079,60 @@
       }
 
       if (selectedKind === 'increase' && selectedAmount() < 5000) {
-        showMessage('증액할 금액을 선택해 주세요. 최소 증액 금액은 5,000원입니다.', 'error');
+        alert('증액할 금액을 선택해 주세요. 최소 증액 금액은 5,000원입니다.');
         return false;
       }
 
       if (selectedKind === 'new') {
         const amount = selectedAmount();
         if (amount < 1000 || amount > 50000) {
-          showMessage('정기후원 금액은 1,000원 이상 50,000원 이하로 선택해 주세요.', 'error');
+          alert('정기후원 금액은 1,000원 이상 50,000원 이하로 선택해 주세요.');
           return false;
         }
       }
 
       if (selectedKind === 'major' && selectedAmount() < 1000) {
-        showMessage('정기후원 금액을 선택하거나 입력해 주세요.', 'error');
+        alert('고액 정기후원 금액을 선택하거나 입력해 주세요.');
         return false;
       }
 
       if (selectedKind === 'pledge') {
         if (selectedAmount() < 1000) {
-          showMessage('약정 후원 희망 금액을 입력해 주세요.', 'error');
+          alert('약정 후원 금액을 선택하거나 직접 입력해 주세요.');
           return false;
         }
 
         if (!document.getElementById('wPledgeDuration').value) {
-          showMessage('약정 후원 기간을 선택해 주세요.', 'error');
+          alert('약정 후원 기간을 선택해 주세요.');
           document.getElementById('wPledgeDuration').focus();
           return false;
         }
       }
 
       const taxType = document.getElementById('wTaxType').value;
-      if (taxType && !document.getElementById('wTaxConsent').checked) {
-        showMessage('기부금 영수증 발급을 위한 정보 수집 및 이용에 동의해 주세요.', 'error');
-        return false;
+      if (taxType) {
+        const rawNumber = document.getElementById('wTaxNumber').value.trim();
+        const digits = rawNumber.replace(/\D/g, '');
+        const expectedLength =
+          taxType === '개인(주민등록번호)' ? 13 : 10;
+        const label =
+          taxType === '개인(주민등록번호)'
+            ? '주민등록번호'
+            : '사업자등록번호';
+
+        if (digits.length !== expectedLength) {
+          alert(
+            label + '는 숫자 ' + expectedLength +
+            '자리로 입력해 주세요.\n하이픈(-)은 입력하지 않아도 됩니다.'
+          );
+          document.getElementById('wTaxNumber').focus();
+          return false;
+        }
+
+        if (!document.getElementById('wTaxConsent').checked) {
+          alert('기부금 영수증 발급을 위한 정보 수집 및 이용에 동의해 주세요.');
+          return false;
+        }
       }
 
       return true;
@@ -1191,18 +1144,9 @@
       if (!validateDonation()) return;
       if (!form.reportValidity()) return;
 
-      const name = document.getElementById('wName').value.trim();
-      const phone = document.getElementById('wPhone').value.trim();
-      const email = document.getElementById('wEmail').value.trim();
-      const current = document.getElementById('wCurrentMonthly').value;
-      const pledgeDuration = document.getElementById('wPledgeDuration').value;
-      const detail = document.getElementById('wPledgeDetail').value.trim();
-      const notes = document.getElementById('wNotes').value.trim();
       const taxType = document.getElementById('wTaxType').value;
       const taxNumber = document.getElementById('wTaxNumber').value.trim();
-      const taxConsent = document.getElementById('wTaxConsent').checked;
-
-      const amount = selectedAmount();
+      const taxNumberDigits = taxNumber.replace(/\D/g, '');
 
       let kindLabel = '';
       if (selectedKind === 'increase') kindLabel = '기존 후원금 증액';
@@ -1210,24 +1154,23 @@
       if (selectedKind === 'major') kindLabel = '고액 정기후원';
       if (selectedKind === 'pledge') kindLabel = '약정 후원 문의';
 
-      const pledgeDetail =
-        selectedKind === 'pledge'
-          ? detail
-          : '';
-
       const payload = {
-        name: name,
-        phone: phone,
-        email: email,
+        name: document.getElementById('wName').value.trim(),
+        phone: document.getElementById('wPhone').value.trim(),
+        email: document.getElementById('wEmail').value.trim(),
         kind: kindLabel,
-        amount: amount,
-        currentMonthly: current,
-        pledgeDuration: selectedKind === 'pledge' ? pledgeDuration : '',
-        pledgeDetail: pledgeDetail,
-        notes: notes,
+        amount: selectedAmount(),
+        currentMonthly: document.getElementById('wCurrentMonthly').value,
+        pledgeDuration: selectedKind === 'pledge'
+          ? document.getElementById('wPledgeDuration').value
+          : '',
+        pledgeDetail: selectedKind === 'pledge'
+          ? document.getElementById('wPledgeDetail').value.trim()
+          : '',
+        notes: document.getElementById('wNotes').value.trim(),
         taxType: taxType,
-        taxNumber: taxNumber,
-        taxConsent: taxConsent,
+        taxNumber: taxNumberDigits,
+        taxConsent: document.getElementById('wTaxConsent').checked,
         consent: document.getElementById('wConsent').checked,
         page: '마을언덕_캠페인',
         submittedAt: new Date().toISOString()
@@ -1238,11 +1181,6 @@
       showMessage('신청 내용을 전송하고 있습니다. 잠시만 기다려 주세요.', 'success');
 
       try {
-        /*
-          Google Apps Script 웹 앱으로 신청 내용을 전송합니다.
-          no-cors 요청은 브라우저에서 응답 본문을 확인할 수 없으므로,
-          이 화면의 접수 안내만으로 실제 시트 저장을 확정할 수는 없습니다.
-        */
         await fetch(SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
@@ -1261,19 +1199,20 @@
           tile.setAttribute('aria-pressed', 'false');
         });
 
-        formSection.classList.remove('visible');
         document.querySelectorAll('.form-section').forEach(function(section) {
           section.classList.remove('visible');
         });
 
+        formSection.classList.remove('visible');
         document.getElementById('newOtherWrap').hidden = true;
         document.getElementById('majorOtherWrap').hidden = true;
+        document.getElementById('pledgeOtherWrap').hidden = true;
         document.getElementById('taxNumberWrap').hidden = true;
         document.getElementById('taxConsentWrap').hidden = true;
 
-        showMessage(
-          '신청 내용을 전송했습니다. 정확한 접수 여부는 후원 신청 스프레드시트에서 확인해 주세요.',
-          'success'
+        alert(
+          '신청 내용을 전송했습니다.\n' +
+          '정확한 접수 여부는 후원 신청 스프레드시트에서 확인해 주세요.'
         );
 
         document.getElementById('wChoice').scrollIntoView({
@@ -1284,12 +1223,12 @@
       } catch (error) {
         console.error('후원 신청 전송 오류:', error);
         showMessage(
-          '신청 내용을 전송하지 못했습니다. 인터넷 연결을 확인한 뒤 다시 시도해 주세요. 문제가 계속되면 마을언덕에 문의해 주세요.',
+          '신청 내용을 전송하지 못했습니다. 인터넷 연결을 확인한 뒤 다시 시도해 주세요.',
           'error'
         );
       } finally {
         submitButton.disabled = false;
-        submitButton.textContent = '후원 신청하기';
+        submitButton.textContent = kinds[selectedKind]?.button || '후원 신청하기';
       }
     });
   </script>
