@@ -120,7 +120,7 @@ textarea{min-height:75px;resize:vertical}
       <div class="tiles">
         <button type="button" class="tile selected" id="tileInc" onclick="wChoose('inc')"><span class="symbol">↗</span><strong>기존 후원금 증액</strong><span>이미 함께하고 있다면 매월 후원금을 조금 더 보태주세요.</span></button>
         <button type="button" class="tile" id="tileNew" onclick="wChoose('new')"><span class="symbol">＋</span><strong>정기후원 시작 (5만원 이하)</strong><span>매월 5만원 이하의 정기후원으로 꾸준히 응원해 주세요.</span></button>
-        <button type="button" class="tile" id="tileMajor" onclick="wChoose('major')"><span class="symbol">✦</span><strong>마을언덕의 집중성장을 위한 고액 정기후원</strong><span>마을언덕의 다음 성장을 위해 매월 10만원 이상 후원해 주세요.</span></button>
+        <button type="button" class="tile" id="tileMajor" onclick="wChoose('major')"><span class="symbol">✦</span><strong>마을언덕의 내일을 위한 고액 정기후원</strong><span>마을언덕의 다음 성장을 위해 매월 10만원 이상 후원해 주세요.</span></button>
         <button type="button" class="tile" id="tilePledge" onclick="wChoose('pledge')"><span class="symbol">♡</span><strong>약정 후원 문의(기업·법인 추천)</strong><span>중장기 활동을 위한 약정후원에 대해 담당자와 상의할 수 있어요.</span></button>
       </div>
     </div>
@@ -275,7 +275,7 @@ function wChoose(kind){
   byId('wTitle').textContent = {
     inc: '매월 추가할 금액을 선택해 주세요',
     new: '정기후원 금액을 선택해 주세요',
-    major: '마을언덕의 집중성장을 위한 고액 정기후원',
+    major: '마을언덕의 내일을 위한 고액 정기후원',
     pledge: '약정후원에 대해 알려주세요'
   }[kind];
 
