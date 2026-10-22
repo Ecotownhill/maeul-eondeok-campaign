@@ -149,22 +149,37 @@
     .section-heading { margin-bottom: 24px; }
 
     /* FAQ 제목 왼쪽의 마을언덕 로고 */
+    /* FAQ 제목 왼쪽, 마을언덕 로고 오른쪽 */
     .faq-heading-inner {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: clamp(18px, 3vw, 30px);
     }
+    
     .faq-heading-logo {
       display: block;
+      order: 2;
       flex: 0 0 auto;
       width: clamp(68px, 9vw, 104px);
       height: auto;
       object-fit: contain;
+      margin-left: auto;
     }
-    .faq-heading-copy { min-width: 0; }
+    
+    .faq-heading-copy {
+      order: 1;
+      min-width: 0;
+    }
+    
     @media (max-width: 520px) {
-      .faq-heading-inner { gap: 14px; }
-      .faq-heading-logo { width: 58px; }
+      .faq-heading-inner {
+        gap: 14px;
+      }
+      
+      .faq-heading-logo {
+        width: 58px;
+      }
     }
 
     .section-kicker {
