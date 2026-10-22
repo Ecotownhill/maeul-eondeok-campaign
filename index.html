@@ -1459,7 +1459,7 @@
         name: document.getElementById('wName').value.trim(),
         phone: document.getElementById('wPhone').value.trim(),
         email: document.getElementById('wEmail').value.trim(),
-        kind: kindLabel,
+        kind: selectedKind,
         amount: selectedAmount(),
         currentMonthly: currentAmount,
         pledgeDuration: selectedKind === 'pledge'
@@ -1489,9 +1489,11 @@
           method: 'POST',
           mode: 'no-cors',
           headers: {
-            'Content-Type': 'text/plain;charset=utf-8'
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
           },
-          body: JSON.stringify(payload)
+          body: new URLSearchParams({
+            payload: JSON.stringify(payload)
+          }).toString()
         });
 
         form.reset();
