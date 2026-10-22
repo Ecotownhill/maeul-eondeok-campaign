@@ -148,6 +148,25 @@
 
     .section-heading { margin-bottom: 24px; }
 
+    /* FAQ 제목 왼쪽의 마을언덕 로고 */
+    .faq-heading-inner {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 3vw, 30px);
+    }
+    .faq-heading-logo {
+      display: block;
+      flex: 0 0 auto;
+      width: clamp(68px, 9vw, 104px);
+      height: auto;
+      object-fit: contain;
+    }
+    .faq-heading-copy { min-width: 0; }
+    @media (max-width: 520px) {
+      .faq-heading-inner { gap: 14px; }
+      .faq-heading-logo { width: 58px; }
+    }
+
     .section-kicker {
       margin: 0 0 7px;
       color: var(--coral);
@@ -1869,10 +1888,15 @@
 
     <!-- FAQ -->
     <section class="section" id="faq">
-      <div class="section-heading">
-        <p class="section-kicker">FAQ</p>
-        <h2>자주 묻는 질문</h2>
-        <p class="section-description">후원 신청 전에 궁금한 점을 확인해 주세요.</p>
+      <div class="section-heading faq-heading-inner">
+        <img class="faq-heading-logo" src="maeul-logo.png"
+             alt="마을언덕 사회적협동조합 로고"
+             onerror="this.style.display='none'">
+        <div class="faq-heading-copy">
+          <p class="section-kicker">FAQ</p>
+          <h2>자주 묻는 질문</h2>
+          <p class="section-description">후원 신청 전에 궁금한 점을 확인해 주세요.</p>
+        </div>
       </div>
 
       <div class="faq-list">
