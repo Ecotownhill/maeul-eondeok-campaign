@@ -1151,6 +1151,252 @@
       }
     }
 
+
+
+    /* V7 — Quiet luxury: preserve the earlier midnight-and-gold direction, refine the details */
+    body.major-mode {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(214,190,145,.12), transparent 38%),
+        linear-gradient(180deg, #eae6dd 0%, #f4f1eb 34%, #eeebe4 100%);
+    }
+    body.major-mode .site-header {
+      background: rgba(20, 39, 54, .97);
+      border-bottom: 1px solid rgba(220,194,146,.38);
+      box-shadow: 0 8px 32px rgba(18,31,41,.12);
+    }
+    body.major-mode .major-experience {
+      min-height: 650px;
+      border: 1px solid rgba(225,199,153,.5);
+      border-radius: 3px;
+      box-shadow: 0 34px 90px rgba(15,28,38,.24), 0 0 0 7px rgba(255,255,255,.18);
+      background: #142a3a;
+    }
+    body.major-mode .major-experience::before {
+      background:
+        linear-gradient(90deg, rgba(10,23,34,.97) 0%, rgba(15,31,43,.90) 42%, rgba(17,34,46,.56) 100%),
+        linear-gradient(0deg, rgba(8,20,30,.65), rgba(8,20,30,.04) 60%),
+        url("달리고살리고.jpg") center 48% / cover no-repeat;
+    }
+    body.major-mode .major-experience::after {
+      width: 500px;
+      height: 500px;
+      right: -165px;
+      top: -205px;
+      border-color: rgba(235,211,167,.55);
+      box-shadow: 0 0 0 1px rgba(235,211,167,.05), 0 0 0 34px rgba(235,211,167,.055), 0 0 0 76px rgba(235,211,167,.035), 0 0 0 122px rgba(235,211,167,.018);
+    }
+    body.major-mode .major-atmosphere {
+      background:
+        radial-gradient(ellipse at 18% 14%, rgba(234,204,148,.16) 0, rgba(224,190,128,.055) 23%, transparent 46%),
+        radial-gradient(ellipse at 78% 80%, rgba(177,199,203,.08) 0, transparent 42%),
+        linear-gradient(135deg, rgba(255,255,255,.015), transparent 45%);
+    }
+    body.major-mode .major-experience h2 {
+      font-size: clamp(42px, 5.4vw, 72px);
+      line-height: 1.17;
+      letter-spacing: -.075em;
+      text-shadow: 0 5px 35px rgba(0,0,0,.18);
+    }
+    body.major-mode .major-eyebrow {
+      gap: 14px;
+      color: #e9cea0;
+      letter-spacing: .24em;
+    }
+    body.major-mode .major-eyebrow::before { width: 48px; background: linear-gradient(90deg, #e9cea0, rgba(233,206,160,.2)); }
+    body.major-mode .major-lead { color: rgba(250,248,243,.82); line-height: 2.05; }
+    body.major-mode .major-rule {
+      width: 74px;
+      height: 1px;
+      background: linear-gradient(90deg, #e8c995, rgba(232,201,149,.12));
+    }
+    body.major-mode .major-value {
+      border-color: rgba(232,201,149,.24);
+      border-radius: 3px;
+      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      box-shadow: inset 0 1px rgba(255,255,255,.045);
+    }
+    body.major-mode .major-value strong { color: #f0d6a5; font-size: 12px; letter-spacing: -.035em; }
+    body.major-mode .major-value span { color: rgba(255,255,255,.76); }
+    body.major-mode .major-aside {
+      position: relative;
+      border-radius: 3px;
+      border-color: rgba(235,211,167,.55);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(235,211,167,.12), transparent 58%),
+        linear-gradient(155deg, rgba(16,34,47,.94), rgba(13,27,39,.78));
+      box-shadow: 0 24px 65px rgba(0,0,0,.22), inset 0 0 0 5px rgba(255,255,255,.018);
+    }
+    body.major-mode .major-aside::before,
+    body.major-mode .major-aside::after {
+      content: "";
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232,201,149,.48), transparent);
+      pointer-events: none;
+    }
+    body.major-mode .major-aside::before { top: 12px; }
+    body.major-mode .major-aside::after { bottom: 12px; }
+    body.major-mode .major-aside-amount { font-size: 34px; letter-spacing: -.07em; }
+    body.major-mode .major-aside-line { background: linear-gradient(90deg, rgba(232,201,149,.55), rgba(255,255,255,.08)); }
+    body.major-mode .major-back { color: rgba(255,255,255,.7); letter-spacing: -.02em; }
+    body.major-mode .major-back:hover { color: #f0d6a5; }
+
+    /* Form: layered paper, quiet glows and refined hairline borders; content remains above effects */
+    body.major-mode #wForm {
+      margin-top: 34px;
+      padding: clamp(24px, 4.5vw, 54px);
+      border: 1px solid rgba(177,148,97,.48);
+      border-radius: 3px;
+      background-color: #faf8f2;
+      background-image:
+        radial-gradient(ellipse at 4% 4%, rgba(210,180,122,.15), transparent 34%),
+        radial-gradient(ellipse at 96% 31%, rgba(154,178,185,.10), transparent 32%),
+        radial-gradient(ellipse at 47% 100%, rgba(210,180,122,.11), transparent 38%),
+        linear-gradient(135deg, rgba(255,255,255,.92), rgba(247,244,236,.96));
+      box-shadow: 0 28px 85px rgba(24,38,48,.13), inset 0 0 0 6px rgba(255,255,255,.42);
+    }
+    body.major-mode #wForm::before {
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #9d7b47 16%, #e7d5b2 50%, #9d7b47 84%, transparent 100%);
+    }
+    body.major-mode #wForm::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      top: 22px;
+      right: 22px;
+      width: 68px;
+      height: 68px;
+      border-top: 1px solid rgba(167,133,76,.28);
+      border-right: 1px solid rgba(167,133,76,.28);
+    }
+    body.major-mode #wForm .section-heading {
+      position: relative;
+      z-index: 1;
+      padding: 0 0 30px;
+      border-bottom-color: rgba(167,145,109,.32);
+    }
+    body.major-mode #wForm .section-kicker { color: #9a7847; letter-spacing: .24em; }
+    body.major-mode #wForm #wTitle { color: #192f40; font-size: clamp(28px, 3.2vw, 38px); letter-spacing: -.065em; }
+    body.major-mode #wForm #wDescription { color: #6f706a; }
+    body.major-mode #donationForm > .form-block {
+      margin-top: 22px;
+      padding: clamp(22px, 3.3vw, 34px);
+      border: 1px solid rgba(179,157,121,.38);
+      border-radius: 3px;
+      box-shadow: 0 14px 35px rgba(35,47,54,.045), inset 0 1px rgba(255,255,255,.95);
+    }
+    body.major-mode #donationForm > .form-block h3 {
+      font-size: 20px;
+      letter-spacing: -.055em;
+      gap: 14px;
+    }
+    body.major-mode #donationForm > .form-block h3::before {
+      width: 2px;
+      flex-basis: 2px;
+      height: 25px;
+      border-radius: 0;
+      background: linear-gradient(180deg, #d9bf8d, #9b7844);
+    }
+    body.major-mode #wMajor {
+      border-radius: 3px !important;
+      border-color: rgba(166,132,73,.58) !important;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(213,185,130,.18), transparent 44%),
+        linear-gradient(135deg, #fffdf8 0%, #f6f0e4 100%) !important;
+      box-shadow: 0 16px 40px rgba(98,75,39,.09), inset 0 0 0 4px rgba(255,255,255,.36) !important;
+    }
+    body.major-mode #wMajor h3 { font-size: 23px !important; }
+    body.major-mode #wMajor h3::after,
+    body.major-mode #applicantInfo h3::after,
+    body.major-mode #taxInfo h3::after,
+    body.major-mode #privacyInfo h3::after { color: #987748; letter-spacing: .17em; }
+    body.major-mode #wMajor .choice label {
+      border-radius: 3px;
+      border-color: #ded0b6;
+      background: rgba(255,255,255,.78);
+      box-shadow: inset 0 1px rgba(255,255,255,.95);
+    }
+    body.major-mode #wMajor .choice label:hover {
+      border-color: #b39866;
+      box-shadow: 0 7px 18px rgba(111,84,43,.08);
+    }
+    body.major-mode #wMajor .choice input:checked + label {
+      border-color: #9d7840;
+      background: linear-gradient(135deg, #f3e8d3, #e9d8b7);
+      box-shadow: inset 0 0 0 1px rgba(157,120,64,.16), 0 5px 15px rgba(111,84,43,.07);
+    }
+    body.major-mode #wMajor .amount-preview {
+      border: 1px solid rgba(221,195,148,.65);
+      border-radius: 3px;
+      background:
+        radial-gradient(ellipse at 85% 0%, rgba(232,201,149,.12), transparent 48%),
+        linear-gradient(110deg, #172d3e, #263e4e);
+      box-shadow: 0 12px 28px rgba(24,43,57,.12), inset 0 1px rgba(255,255,255,.06);
+    }
+    body.major-mode #applicantInfo,
+    body.major-mode #taxInfo,
+    body.major-mode #privacyInfo {
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(206,179,128,.10), transparent 40%),
+        linear-gradient(140deg, rgba(255,255,255,.99), rgba(250,248,242,.98));
+    }
+    body.major-mode .field input,
+    body.major-mode .field select,
+    body.major-mode .field textarea {
+      border-radius: 3px;
+      border-color: #d9d4c9;
+      background: rgba(255,255,255,.78);
+      box-shadow: inset 0 1px 2px rgba(37,45,50,.018);
+    }
+    body.major-mode .field input:focus,
+    body.major-mode .field select:focus,
+    body.major-mode .field textarea:focus {
+      border-color: #a98a57;
+      box-shadow: 0 0 0 3px rgba(169,138,87,.11);
+    }
+    body.major-mode .preview-card,
+    body.major-mode .consent-box {
+      border-radius: 3px;
+      border-color: rgba(179,157,121,.42);
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(209,184,139,.09), transparent 55%),
+        #f7f4ed;
+    }
+    body.major-mode .submit-row { border-top-color: rgba(167,145,109,.34); }
+    body.major-mode #submitButton {
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px;
+      border-color: #b99a65;
+      background: linear-gradient(105deg, #172d3e 0%, #294557 52%, #172d3e 100%);
+      box-shadow: 0 12px 28px rgba(25,45,61,.2), inset 0 1px rgba(255,255,255,.12);
+      letter-spacing: .02em;
+    }
+    body.major-mode #submitButton::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -45%;
+      width: 35%;
+      transform: skewX(-22deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.13), transparent);
+      transition: left .65s ease;
+      pointer-events: none;
+    }
+    body.major-mode #submitButton:hover::after { left: 120%; }
+    @media (max-width: 650px) {
+      body.major-mode .major-experience { border-radius: 3px; box-shadow: 0 20px 50px rgba(15,28,38,.2); }
+      body.major-mode #wForm { padding: 24px 14px; }
+      body.major-mode #wForm::after { width: 38px; height: 38px; top: 12px; right: 12px; }
+      body.major-mode #donationForm > .form-block { padding: 22px 15px; }
+      body.major-mode #wMajor h3 { font-size: 20px !important; }
+    }
+
   </style>
 </head>
 
