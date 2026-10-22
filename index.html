@@ -585,6 +585,64 @@
       box-shadow: 0 0 0 28px rgba(226,197,145,.055), 0 0 0 64px rgba(226,197,145,.04), 0 0 0 102px rgba(226,197,145,.025);
       pointer-events: none;
     }
+    /* 차분한 금빛 입자와 후광: 폭죽처럼 터지지 않고 천천히 숨 쉬는 빛 */
+    .major-atmosphere {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: inherit;
+      background:
+        radial-gradient(ellipse at 18% 15%, rgba(224, 192, 129, .12) 0, rgba(224, 192, 129, .045) 20%, transparent 43%),
+        radial-gradient(ellipse at 82% 72%, rgba(224, 192, 129, .10) 0, transparent 38%);
+    }
+    .major-atmosphere::before,
+    .major-atmosphere::after {
+      content: "";
+      position: absolute;
+      width: min(52vw, 560px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      filter: blur(1px);
+      opacity: .52;
+      background: radial-gradient(circle, rgba(242, 215, 164, .13) 0, rgba(219, 184, 120, .055) 26%, transparent 68%);
+      animation: haloBreathe 9s ease-in-out infinite alternate;
+    }
+    .major-atmosphere::before { top: -34%; left: -13%; }
+    .major-atmosphere::after { right: -18%; bottom: -48%; animation-delay: -4.5s; }
+    .major-light-particle {
+      position: absolute;
+      display: block;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #f1d9a8;
+      box-shadow: 0 0 9px 2px rgba(241, 217, 168, .34), 0 0 22px rgba(241, 217, 168, .16);
+      opacity: 0;
+      animation: lightDrift 12s ease-in-out infinite;
+    }
+    .major-light-particle:nth-child(1) { left: 12%; bottom: 12%; animation-delay: -2s; }
+    .major-light-particle:nth-child(2) { left: 38%; bottom: 7%; width: 2px; height: 2px; animation-delay: -8s; }
+    .major-light-particle:nth-child(3) { left: 61%; bottom: 17%; animation-delay: -5s; }
+    .major-light-particle:nth-child(4) { right: 12%; bottom: 10%; width: 2px; height: 2px; animation-delay: -10s; }
+    .major-light-particle:nth-child(5) { right: 29%; bottom: 5%; animation-delay: -6.5s; }
+    .major-light-particle:nth-child(6) { left: 25%; bottom: 22%; width: 2px; height: 2px; animation-delay: -3.5s; }
+    .major-copy, .major-aside { position: relative; z-index: 1; }
+    @keyframes haloBreathe {
+      from { transform: scale(.92); opacity: .32; }
+      to { transform: scale(1.08); opacity: .62; }
+    }
+    @keyframes lightDrift {
+      0% { transform: translate3d(0, 18px, 0) scale(.7); opacity: 0; }
+      18% { opacity: .42; }
+      58% { opacity: .24; }
+      100% { transform: translate3d(13px, -150px, 0) scale(1.1); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .major-atmosphere::before, .major-atmosphere::after, .major-light-particle { animation: none !important; }
+    }
+
     .major-experience.visible {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(210px, 280px);
@@ -1027,6 +1085,72 @@
       body.major-mode #submitButton { width: 100%; }
     }
 
+
+
+    /* Form-wide quiet golden atmosphere: light stays behind all text and controls */
+    body.major-mode #wForm {
+      background-color: #fbfaf7;
+      background-image:
+        radial-gradient(ellipse at 8% 12%, rgba(205, 174, 112, .085) 0%, rgba(205, 174, 112, .025) 25%, transparent 48%),
+        radial-gradient(ellipse at 94% 40%, rgba(154, 177, 185, .075) 0%, transparent 35%),
+        radial-gradient(ellipse at 38% 95%, rgba(215, 190, 145, .075) 0%, transparent 42%);
+    }
+    body.major-mode #wForm > .section-heading,
+    body.major-mode #wForm > #donationForm {
+      position: relative;
+      z-index: 1;
+    }
+    body.major-mode #donationForm > .form-block {
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(207, 180, 128, .075) 0%, transparent 37%),
+        linear-gradient(145deg, rgba(255,255,255,.99), rgba(253,251,247,.98));
+    }
+    body.major-mode #donationForm > .form-block::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      width: 360px;
+      height: 360px;
+      right: -190px;
+      top: -205px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(219, 190, 136, .12) 0%, rgba(219, 190, 136, .045) 36%, transparent 70%);
+      animation: formGlowBreathe 13s ease-in-out infinite alternate;
+    }
+    body.major-mode #donationForm > .form-block > * {
+      position: relative;
+      z-index: 1;
+    }
+    body.major-mode #wMajor {
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(211, 180, 119, .14) 0%, transparent 42%),
+        linear-gradient(145deg, #fffdf8 0%, #f7f1e6 100%) !important;
+    }
+    body.major-mode #applicantInfo,
+    body.major-mode #taxInfo,
+    body.major-mode #privacyInfo {
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(206, 179, 128, .075) 0%, transparent 38%),
+        linear-gradient(145deg, #fff 0%, #fdfbf7 100%);
+    }
+    body.major-mode .consent-box {
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(209, 184, 139, .07) 0%, transparent 55%),
+        #f8f6f1;
+    }
+    @keyframes formGlowBreathe {
+      from { transform: translate3d(0, 0, 0) scale(.92); opacity: .55; }
+      to { transform: translate3d(-18px, 12px, 0) scale(1.08); opacity: .9; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      body.major-mode #donationForm > .form-block::after {
+        animation: none;
+      }
+    }
+
   </style>
 </head>
 
@@ -1055,8 +1179,16 @@
 
 
     <section class="major-experience" id="majorExperience" aria-labelledby="majorExperienceTitle">
+      <div class="major-atmosphere" aria-hidden="true">
+        <span class="major-light-particle"></span>
+        <span class="major-light-particle"></span>
+        <span class="major-light-particle"></span>
+        <span class="major-light-particle"></span>
+        <span class="major-light-particle"></span>
+        <span class="major-light-particle"></span>
+      </div>
       <div class="major-copy">
-        <p class="major-eyebrow"></p>
+        <p class="major-eyebrow">MAEUL EONDEOK · PARTNERS IN TOMORROW</p>
         <h2 id="majorExperienceTitle">마을의 내일을<br>함께 키우는 마음</h2>
         <p class="major-lead">
           이웃이 만나고, 서로 돌보며, 생태적인 삶을 함께 실천하는 마을언덕.
