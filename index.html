@@ -804,8 +804,9 @@
 
           <div class="field" id="majorOtherWrap" hidden>
             <label for="majorOtherAmount">희망 월 후원금 (원) <span class="required">*</span></label>
-            <input id="majorOtherAmount" type="number" min="1000" step="1000"
+            <input id="majorOtherAmount" type="number" min="100000" step="1000"
                    inputmode="numeric" placeholder="예: 500000">
+            <p class="help">직접 입력 시 최소 100,000원 이상 입력해 주세요.</p>
           </div>
 
           <div class="amount-preview">
@@ -843,8 +844,9 @@
 
           <div class="field" id="pledgeOtherWrap" hidden>
             <label for="pledgeOtherAmount">직접 입력할 금액 (원) <span class="required">*</span></label>
-            <input id="pledgeOtherAmount" type="number" min="1000" step="1000"
+            <input id="pledgeOtherAmount" type="number" min="100000" step="1000"
                    inputmode="numeric" placeholder="예: 1000000">
+            <p class="help">직접 입력 시 최소 100,000원 이상 입력해 주세요.</p>
           </div>
 
           <div class="amount-preview">
@@ -1416,14 +1418,32 @@
         }
       }
 
-      if (selectedKind === 'major' && selectedAmount() < 1000) {
-        alert('고액 정기후원 금액을 선택하거나 입력해 주세요.');
-        return false;
+      if (selectedKind === 'major') {
+        const majorChoice = selectedRadio('majorAmount');
+
+        if (!majorChoice || selectedAmount() <= 0) {
+          alert('고액 정기후원 금액을 선택하거나 입력해 주세요.');
+          return false;
+        }
+
+        if (majorChoice === 'other' && selectedAmount() < 100000) {
+          alert('고액 정기후원 직접 입력 금액은 최소 100,000원입니다.');
+          document.getElementById('majorOtherAmount').focus();
+          return false;
+        }
       }
 
       if (selectedKind === 'pledge') {
-        if (selectedAmount() < 1000) {
+        const pledgeChoice = selectedRadio('pledgeAmount');
+
+        if (!pledgeChoice || selectedAmount() <= 0) {
           alert('약정 후원 금액을 선택하거나 직접 입력해 주세요.');
+          return false;
+        }
+
+        if (pledgeChoice === 'other' && selectedAmount() < 100000) {
+          alert('약정 후원 직접 입력 금액은 최소 100,000원입니다.');
+          document.getElementById('pledgeOtherAmount').focus();
           return false;
         }
 
