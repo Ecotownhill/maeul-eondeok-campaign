@@ -1445,6 +1445,35 @@
       padding-top: 0;
       border-top: 0;
     }
+
+    
+    /* 정기후원 시작 전용 안내문 (평소에는 숨김) */
+    .new-only-notice {
+      display: none;
+      margin: 0 0 18px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--coral);
+      border-radius: 12px;
+      background: #fff4f0;
+      font-size: 14px;
+    }
+
+    .new-only-notice strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--navy);
+    }
+
+    .new-only-notice p {
+      margin: 0;
+      color: var(--ink);
+    }
+
+    #wForm.kind-new .new-only-notice {
+      display: block;
+    }
+
     
   </style>
 </head>
@@ -1810,6 +1839,12 @@
             </div>
           </div>
         </div>
+        
+        <!-- 정기후원 시작 전용 안내: 영수증 -->
+        <div class="new-only-notice">
+          <strong>기부금 영수증이 필요하신가요?</strong>
+          <p>기부금 영수증을 원하시는 분만 아래 해당 사항을 작성해 주세요. 필요하지 않으시면 작성하지 않고 바로 신청하셔도 됩니다.</p>
+        </div>
 
         <!-- 기부금 영수증 정보 -->
         <div class="form-block" id="taxInfo">
@@ -1874,6 +1909,13 @@
               </label>
             </div>
           </div>
+        </div>
+        
+        
+        <!-- 정기후원 시작 전용 안내: 결제창 이동 -->
+        <div class="new-only-notice">
+          <strong>신청 후 안내</strong>
+          <p>‘정기후원 신청하기’ 버튼을 누르시면 결제 창으로 자동으로 넘어갑니다.</p>
         </div>
 
         <div class="submit-row">
