@@ -2027,13 +2027,6 @@
           : Number(value || 0);
       }
 
-      if (selectedKind === 'pledge') {
-        const value = selectedRadio('pledgeAmount');
-        return value === 'other'
-          ? Number(document.getElementById('pledgeOtherAmount').value || 0)
-          : Number(value || 0);
-      }
-
       return 0;
     }
 
@@ -2094,17 +2087,6 @@
           ? won(document.getElementById('majorOtherAmount').value)
           : won(Number(majorValue || 0));
 
-      const pledgeValue = selectedRadio('pledgeAmount');
-      document.getElementById('pledgeOtherWrap').hidden =
-        pledgeValue !== 'other';
-
-      document.getElementById('pledgeOtherAmount').required =
-        selectedKind === 'pledge' && pledgeValue === 'other';
-
-      document.getElementById('pledgePreview').textContent =
-        pledgeValue === 'other'
-          ? won(document.getElementById('pledgeOtherAmount').value)
-          : won(Number(pledgeValue || 0));
     }
 
     function chooseKind(kind) {
@@ -2187,11 +2169,10 @@
     });
 
     document.querySelectorAll(
-      'input[name="currentMonthlyChoice"], ' +
+      'input[name="currentMonthlyChoice"],' +
       'input[name="increaseAmount"], ' +
       'input[name="newAmount"], ' +
-      'input[name="majorAmount"], ' +
-      'input[name="pledgeAmount"]'
+      'input[name="majorAmount"], '
     ).forEach(function(input) {
       input.addEventListener('change', updatePreviews);
     });
@@ -2200,8 +2181,7 @@
       'currentOtherAmount',
       'incOtherAmount',
       'newOtherAmount',
-      'majorOtherAmount',
-      'pledgeOtherAmount'
+      'majorOtherAmount'
     ].forEach(function(id) {
       document.getElementById(id).addEventListener('input', updatePreviews);
     });
@@ -2355,19 +2335,6 @@
       }
 
       if (selectedKind === 'pledge') {
-        const pledgeChoice = selectedRadio('pledgeAmount');
-
-        if (!pledgeChoice || selectedAmount() <= 0) {
-          alert('약정 후원 금액을 선택하거나 직접 입력해 주세요.');
-          return false;
-        }
-
-        if (pledgeChoice === 'other' && selectedAmount() < 100000) {
-          alert('약정 후원 직접 입력 금액은 최소 100,000원입니다.');
-          document.getElementById('pledgeOtherAmount').focus();
-          return false;
-        }
-
         if (!document.getElementById('wPledgeDuration').value) {
           alert('약정 후원 기간을 선택해 주세요.');
           document.getElementById('wPledgeDuration').focus();
@@ -2480,7 +2447,6 @@
         document.getElementById('incOtherWrap').hidden = true;
         document.getElementById('newOtherWrap').hidden = true;
         document.getElementById('majorOtherWrap').hidden = true;
-        document.getElementById('pledgeOtherWrap').hidden = true;
         document.getElementById('taxNumberWrap').hidden = true;
         document.getElementById('taxConsentWrap').hidden = true;
         document.getElementById('taxPreviewCard').hidden = true;
