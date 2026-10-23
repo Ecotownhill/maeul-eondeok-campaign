@@ -2113,6 +2113,12 @@
       selectedKind = kind;
       document.getElementById('wKind').value = kind;
 
+      // 신규 정기후원 선택 시 신청자 정보 숨기기
+      document.getElementById('applicantInfo').hidden = (kind === 'new');
+
+      // 신규 정기후원 선택 시 후원금 선택 영역 숨기기
+      document.getElementById('wNew').hidden = (kind === 'new');
+
       const isMajorExperience = kind === 'major';
       document.body.classList.toggle('major-mode', isMajorExperience);
       document.getElementById('majorExperience').classList.toggle('visible', isMajorExperience);
