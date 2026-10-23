@@ -1473,8 +1473,22 @@
     #wForm.kind-new .new-only-notice {
       display: block;
     }
-
     
+    
+    /* 정기후원 신청 안내(첫 번째 안내문)만 크게 */
+    .new-only-notice.notice-large {
+      padding: 22px 24px;
+    }
+
+    .new-only-notice.notice-large strong {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .new-only-notice.notice-large p {
+      font-size: 17px;
+      line-height: 1.75;
+    }   
   </style>
 </head>
 
@@ -1842,7 +1856,7 @@
         
         <!-- 정기후원 시작 전용 안내: 영수증 -->
 
-        <div class="new-only-notice">
+        <div class="new-only-notice notice-large">
           <strong>정기후원 신청 안내</strong>
           <p>이 페이지는 마을언덕 정기후원을 신청하는 페이지입니다. 아래 ‘정기후원 신청하기’ 버튼을 눌러 정기후원 금액과 출금 정보를 입력해 주세요. 신청이 확인되면 문자로 연락드리겠습니다.</p>
         </div>
