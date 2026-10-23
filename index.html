@@ -1430,7 +1430,21 @@
       body.major-mode #donationForm > .form-block { padding: 22px 15px; }
       body.major-mode #wMajor h3 { font-size: 20px !important; }
     }
-
+    
+    /* 정기후원 시작(5만원 이하) 선택 시: 제목·금액·신청자 정보 숨김 */
+    #wForm.kind-new .section-heading,
+    #wForm.kind-new #wNew,
+    #wForm.kind-new #applicantInfo {
+      display: none;
+    }
+    
+    /* 맨 위에 남는 기부금 영수증 블록의 윗선·여백 제거 */
+    #wForm.kind-new #taxInfo {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+    
   </style>
 </head>
 
@@ -2113,6 +2127,11 @@
 
       formSection.classList.add('visible');
       document.getElementById(kinds[kind].section).classList.add('visible');
+      
+      const isNew = kind === 'new';
+      formSection.classList.toggle('kind-new', isNew);
+      document.getElementById('wName').required = !isNew;
+      document.getElementById('wPhone').required = !isNew;
 
       document.getElementById('wTitle').textContent = kinds[kind].title;
       document.getElementById('wDescription').textContent =
@@ -2310,14 +2329,7 @@
         }
       }
 
-      if (selectedKind === 'new') {
-        const amount = selectedAmount();
 
-        if (amount < 10000 || amount > 50000) {
-          alert('정기후원 금액은 10,000원 이상 50,000원 이하로 선택해 주세요.');
-          return false;
-        }
-      }
 
       if (selectedKind === 'major') {
         const majorChoice = selectedRadio('majorAmount');
