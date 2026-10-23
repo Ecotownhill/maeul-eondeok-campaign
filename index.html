@@ -1434,7 +1434,8 @@
     /* 정기후원 시작(5만원 이하) 선택 시: 제목·금액·신청자 정보 숨김 */
     #wForm.kind-new .section-heading,
     #wForm.kind-new #wNew,
-    #wForm.kind-new #applicantInfo {
+    #wForm.kind-new #applicantInfo,
+    #wForm.kind-new #privacyInfo {
       display: none;
     }
     
@@ -2135,6 +2136,7 @@
       formSection.classList.toggle('kind-new', isNew);
       document.getElementById('wName').required = !isNew;
       document.getElementById('wPhone').required = !isNew;
+      document.getElementById('wConsent').required = !isNew;
 
       document.getElementById('wTitle').textContent = kinds[kind].title;
       document.getElementById('wDescription').textContent =
