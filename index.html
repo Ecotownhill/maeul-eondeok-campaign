@@ -551,7 +551,7 @@
       position: relative;
       overflow: hidden;
       margin-top: 26px;
-      padding: clamp(36px, 7vw, 66px);
+      padding: clamp(30px, 6vw, 60px);
       border-radius: 24px;
       background:
         linear-gradient(rgba(28, 45, 59, .70), rgba(28, 45, 59, .76)),
@@ -2112,13 +2112,6 @@
 
       selectedKind = kind;
       document.getElementById('wKind').value = kind;
-
-      // 신규 정기후원 선택 시 후원금 선택 영역 숨기기
-      document.getElementById('wNew').hidden = (kind === 'new');
-      
-      // 신규 정기후원 선택 시 신청자 정보 숨기기
-      document.getElementById('applicantInfo').hidden = (kind === 'new');
-
 
       const isMajorExperience = kind === 'major';
       document.body.classList.toggle('major-mode', isMajorExperience);
