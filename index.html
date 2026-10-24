@@ -1477,18 +1477,37 @@
     
     /* 정기후원 신청 안내(첫 번째 안내문)만 크게 */
     .new-only-notice.notice-large {
-      padding: 22px 24px;
+      padding: 36px 32px;
+      margin-bottom: 26px;
     }
 
     .new-only-notice.notice-large strong {
-      margin-bottom: 8px;
-      font-size: 20px;
+      margin-bottom: 14px;
+      font-size: 27px;
+      line-height: 1.4;
     }
 
     .new-only-notice.notice-large p {
-      font-size: 17px;
-      line-height: 1.75;
+      font-size: 20px;
+      line-height: 1.85;
     }   
+
+
+    /* 휴대폰 화면에서는 조금 줄여서 보기 좋게 */
+    @media (max-width: 650px) {
+      .new-only-notice.notice-large {
+        padding: 26px 20px;
+      }
+
+      .new-only-notice.notice-large strong {
+        font-size: 22px;
+      }
+
+      .new-only-notice.notice-large p {
+        font-size: 17px;
+      }
+    }
+    
   </style>
 </head>
 
