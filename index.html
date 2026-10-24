@@ -2523,6 +2523,10 @@
         });
         
         if (selectedKind === 'new') {
+          alert(
+            '신청 내용을 전송했습니다.\n'+
+            '확인을 누르시면 결제 창으로 이동합니다.'
+            );
           window.location.href = NEW_REDIRECT_URL;
           return;
         }
@@ -2561,7 +2565,7 @@
 
         alert(
           '신청 내용을 전송했습니다.\n' +
-          '정확한 접수 여부는 후원 신청 스프레드시트에서 확인해 주세요.'
+          '확인 후 담당자가 연락을 드릴 예정입니다.'
         );
 
         document.getElementById('wChoice').scrollIntoView({
