@@ -2522,10 +2522,13 @@
           }).toString()
         });
         
-        if (selectedKind === 'new') {
-          window.location.href = NEW_REDIRECT_URL;
-          return;
-        }
+       if (selectedKind === 'new') {
+  setTimeout(function() {
+    window.location.href = NEW_REDIRECT_URL;
+  }, 600);
+  return;
+}
+        
 
         form.reset();
         selectedKind = '';
